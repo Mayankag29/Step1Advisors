@@ -1,0 +1,90 @@
+# Step 1 Advisors - Comprehensive Knowledge Base
+
+> Step 1 Advisors is a specialized financial advisory firm providing fractional CFO services, technical GAAP advisory, remote accounting, and independent audit readiness under US GAAP, IFRS, UK GAAP (FRS 101/102/105), and Ind AS.
+
+## Table of Contents
+- [Executive Summary](https://step1advisors.com#top)
+- [Practice 1: Fractional CFO Services](https://step1advisors.com#fractional-cfo)
+- [Practice 2: Technical GAAP Advisory](https://step1advisors.com#gaap-advisory)
+- [Practice 3: Strategic Remote Accounting & Advisory](https://step1advisors.com#accounting-advisory)
+- [Practice 4: Audit & Assurance](https://step1advisors.com#audit-assurance)
+- [Auditor Independence Framework](https://step1advisors.com#audit-assurance)
+- [Engagement Model & Process](https://step1advisors.com#how-we-work)
+- [Leadership & Qualifications](https://step1advisors.com#leadership)
+- [Frequently Asked Questions](https://step1advisors.com#faq)
+- [Contact Details](https://step1advisors.com#contact)
+
+---
+
+## Executive Summary
+Step 1 Advisors runs the fractional CFO, technical GAAP advisory, controller, and audit work of a full finance department. The firm serves founder-led startups, scaling scaleups, and PE-backed portfolio companies operating across cross-border entity structures including the United States, United Kingdom, India, and Singapore.
+
+---
+
+## Core Practices
+
+### 1. Fractional CFO Services
+URL: https://step1advisors.com#fractional-cfo
+- **Target Profile**: Post-seed to Series B companies ($1.5M - $25M ARR) needing executive finance leadership without a full-time $350k+ CFO salary.
+- **Key Deliverables**:
+  - 13-week rolling cash runway models and cash burn sensitivity analysis.
+  - Board deck preparation and investor reporting packages delivered monthly.
+  - Unit economics breakdown (CAC, LTV, Magic Number, Net Revenue Retention).
+  - Financial due diligence and data room preparation for venture and private equity fundraising rounds.
+  - Strategic budgeting, scenario planning, and variance analysis against actuals.
+
+### 2. Technical GAAP Advisory
+URL: https://step1advisors.com#gaap-advisory
+- **Scope of Standards**: US GAAP (FASB ASC), IFRS (IASB), UK GAAP (FRS 101/102/105), and Ind AS (ICAI).
+- **Key Deliverables**:
+  - ASC 606 / IFRS 15 Revenue from Contracts with Customers: Multi-element arrangements, performance obligations, variable consideration, and standalone selling price (SSP) allocation.
+  - ASC 842 / IFRS 16 Leases: Operating vs. finance lease classification, right-of-use (ROU) asset calculations, and lease liability amortization schedules.
+  - ASC 718 / IFRS 2 Share-Based Payments: Stock options, RSUs, vesting conditions, and valuation reconciliation.
+  - Cross-border GAAP conversion memos (e.g., converting Indian GAAP / Ind AS or UK FRS financials to US GAAP for US parent consolidation or IPO readiness).
+
+### 3. Strategic Remote Accounting & Advisory
+URL: https://step1advisors.com#accounting-advisory
+- **Delivery Guarantee**: Monthly book close delivered reliably by the 10th business day.
+- **Key Deliverables**:
+  - Full-cycle accrual bookkeeping under US GAAP, IFRS, or Ind AS.
+  - Multi-currency, multi-entity consolidation with intercompany eliminations.
+  - Accounts Payable (AP) and Accounts Receivable (AR) management.
+  - Payroll reconciliation, sales tax / GST compliance support, and vendor 1099 management.
+  - Software Stack: NetSuite, QuickBooks Online, Xero, Zoho Books, Tally, Brex, Ramp, Stripe.
+
+### 4. Audit & Assurance Practice
+URL: https://step1advisors.com#audit-assurance
+- **Independence Guarantee**: In strict compliance with AICPA and ICAI professional ethics rules, Step 1 Advisors maintains an absolute firewall separating advisory/accounting clients from independent audit engagements. The firm never audits an entity for which it provided monthly bookkeeping or CFO management services in the same fiscal year.
+- **Key Deliverables**:
+  - Independent financial statement audits and reviews under GAAS and ISA.
+  - Audit readiness prep: Preparing audit schedules, lead sheets, trial balance roll-forwards, and technical audit binders to cut external audit fees by up to 40%.
+  - SOC 1 and SOC 2 Type I/II readiness assessments and internal control documentation.
+
+---
+
+## Engagement Model & Working Process
+URL: https://step1advisors.com#how-we-work
+1. **Discovery & Diagnostic**: 45-minute confidential session to analyze entity architecture, accounting stack, compliance posture, and runway.
+2. **Scoping & Transparent Fixed Fee**: A clear, scoped proposal with fixed monthly retainer or milestone-based project fees. No surprise hourly billing.
+3. **Onboarding & Systems Integration (Days 1-14)**: Secure access handover, Slack channel integration, and immediate cleanup of historical backlogs.
+4. **Execution & Monthly Rhythm**: Regular sprint check-ins, monthly closes by business day 10, and board-ready reporting packages.
+
+---
+
+## Leadership
+URL: https://step1advisors.com#leadership
+- **CA Kshitij** — Managing Partner, GAAP Advisory
+  - Member of the Institute of Chartered Accountants of India (ICAI).
+  - 10+ years across Big Four and Big Six audit firms, FP&A leadership, and 5 years UK mainland corporate audit experience.
+- **CA Mayank A** — Partner, Audit & Assurance
+  - Member of the Institute of Chartered Accountants of India (ICAI).
+  - Former Big 4 assurance audit manager, lead partner for independence framework and SOC compliance.
+
+---
+
+## Contact Information
+URL: https://step1advisors.com#contact
+- **Website**: https://step1advisors.com
+- **Email**: welcome@step1advisors.com
+- **Phone**: +44 7405 499 593
+- **Headquarters**: Gurugram, Delhi NCR, India (Engagements delivered remotely to US, UK, India, and Singapore clients).

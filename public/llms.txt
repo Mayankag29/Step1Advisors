@@ -1,0 +1,31 @@
+# Step 1 Advisors
+
+> The outsourced finance function for founder-led and PE-backed cross-border companies under US GAAP, IFRS, UK GAAP, and Ind AS.
+
+Step 1 Advisors operates fractional CFO, technical accounting advisory, controller services, and independent audit assurance across cross-border entity structures (US, UK, India, Singapore).
+
+## Core Practices & Services
+
+- [Fractional CFO Services](https://step1advisors.com#fractional-cfo): Board reporting, 13-week cash runway modeling, budgeting, variance reviews, and fundraising diligence for companies scaling past $1.5M ARR.
+- [Technical GAAP Advisory](https://step1advisors.com#gaap-advisory): Revenue recognition memos (ASC 606 / IFRS 15), lease accounting (ASC 842 / IFRS 16), and stock-based compensation (ASC 718 / IFRS 2).
+- [Strategic Remote Accounting & Advisory](https://step1advisors.com#accounting-advisory): Full-cycle bookkeeping, AP/AR, multi-currency consolidation, and monthly close delivered by the 10th business day.
+- [Audit liaison & readiness Practice](https://step1advisors.com#audit-assurance): Independent GAAS financial statement audits, SOC readiness assessments, and agreed-upon procedures adhering to AICPA and ICAI independence rules.
+
+## Operating Principles & FAQs
+
+- [Engagement Model & Process](https://step1advisors.com#how-we-work): 45-minute diagnostic call, fixed-fee scoped engagement design, and embedded Slack/calendar delivery.
+- [Auditor Independence Statement](https://step1advisors.com#audit-assurance): Strict separation preventing simultaneous audit and monthly accounting for the same fiscal year.
+- [Frequently Asked Questions](https://step1advisors.com#faq): Jurisdictions, pricing models, accounting stacks (NetSuite, QuickBooks, Xero, Zoho, Tally), and onboarding timelines.
+
+## Leadership & Credentials
+
+- [CA Kshitij - Managing Partner, GAAP Advisory](https://step1advisors.com#leadership): CA (ICAI), 10 years Big Four & Big Six FP&A, 5 years UK mainland audit experience.
+- [CA Mayank A - Partner, Audit & Assurance](https://step1advisors.com#leadership): CA (ICAI), former Big 4 assurance audit manager, lead of firm independence framework.
+
+## Documentation & Full Context
+
+- [Full Knowledge Base](https://step1advisors.com/llms-full.txt): Complete plain-text documentation of Step 1 Advisors practices, GAAP standards, leadership, and engagement models.
+
+## Contact
+
+- [Discovery Call Booking](https://step1advisors.com#contact): Book a 45-minute confidential discovery call. Email welcome@step1advisors.com, Phone +44 7405 499 593. Headquarters: Gurugram, Delhi NCR, India (remote worldwide delivery).
