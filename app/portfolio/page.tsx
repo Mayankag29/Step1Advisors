@@ -5,7 +5,7 @@ import { PRODUCT_NAME, PRODUCT_SHORT_NAME } from "@/lib/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portfolio & Representative Engagements",
+  title: "Case Studies & Representative Engagements",
   description:
     `Representative client engagements, technical accounting memorandums, and pro-forma finance operations delivered by ${PRODUCT_NAME}.`,
 };

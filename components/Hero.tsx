@@ -1,9 +1,68 @@
+"use client";
+
 import HeroCanvas from "./HeroCanvas";
 import Button from "./Button";
 import { HERO_SERVICES } from "@/data/services";
 import { PRODUCT_NAME } from "@/lib/config";
 
 export default function Hero() {
+  const handleServiceClick = (e: React.MouseEvent, serviceId: string) => {
+    e.preventDefault();
+    if (typeof window !== "undefined") {
+      window.history.pushState(null, "", `#${serviceId}`);
+      window.dispatchEvent(
+        new CustomEvent("select-practice", { detail: serviceId })
+      );
+      const isMobile = window.innerWidth < 1024;
+      const targetEl = isMobile
+        ? (document.getElementById(`service-${serviceId}`) ||
+          document.getElementById("services"))
+        : document.getElementById("services");
+
+      if (targetEl) {
+        const lenis = (window as unknown as {
+          __lenis?: {
+            scrollTo: (
+              el: HTMLElement,
+              opts?: { offset?: number; duration?: number }
+            ) => void;
+          };
+        }).__lenis;
+        if (lenis) {
+          lenis.scrollTo(targetEl, {
+            offset: isMobile ? -70 : 0,
+            duration: 1.0,
+          });
+        } else {
+          targetEl.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  };
+
+  const handleCalculatorClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof window !== "undefined") {
+      window.history.pushState(null, "", "#savings-calculator");
+      const calcEl = document.getElementById("savings-calculator");
+      if (calcEl) {
+        const lenis = (window as unknown as {
+          __lenis?: {
+            scrollTo: (
+              el: HTMLElement,
+              opts?: { offset?: number; duration?: number }
+            ) => void;
+          };
+        }).__lenis;
+        if (lenis) {
+          lenis.scrollTo(calcEl, { offset: 0, duration: 1.0 });
+        } else {
+          calcEl.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  };
+
   return (
     <section
       id="top"
@@ -56,7 +115,8 @@ export default function Hero() {
               <a
                 key={service.id}
                 href={`#${service.id}`}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-background/10 bg-foreground/50 backdrop-blur-md p-4 sm:p-5 lg:p-6 transition duration-300 hover:border-primary/40 hover:bg-foreground/80 hover:-translate-y-0.5 hover:shadow-glow-primary-sm min-h-30 sm:min-h-35 lg:min-h-40"
+                onClick={(e) => handleServiceClick(e, service.id)}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-background/10 bg-foreground/50 backdrop-blur-md p-4 sm:p-5 lg:p-6 transition duration-300 hover:border-primary/40 hover:bg-foreground/80 hover:-translate-y-0.5 hover:shadow-glow-primary-sm min-h-30 sm:min-h-35 lg:min-h-40 cursor-pointer"
               >
                 <div className="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-radial-[at_top_right] from-primary/12 via-transparent to-transparent" />
 
@@ -85,8 +145,9 @@ export default function Hero() {
             Nothing here is a required bundle — engage one function on its own,
             or combine them into a single retainer. Curious about the numbers?{" "}
             <a
-              href="#contact"
-              className="text-primary underline decoration-secondary/40 underline-offset-4 transition-colors hover:text-background hover:decoration-background font-medium"
+              href="#savings-calculator"
+              onClick={handleCalculatorClick}
+              className="text-primary underline decoration-secondary/40 underline-offset-4 transition-colors hover:text-background hover:decoration-background font-medium cursor-pointer"
             >
               Calculate your savings today.
             </a>

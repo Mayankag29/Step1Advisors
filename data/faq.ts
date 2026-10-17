@@ -10,11 +10,6 @@ export const FAQ_ITEMS: FAQItem[] = [
       "We serve companies incorporated in the UK and the US, and groups with subsidiaries overseas. Our technical accounting covers FRS 102, FRS 105, FRS 101, UK-adopted IFRS and US GAAP. If your structure sits outside those frameworks, tell us on the diagnostic call and we’ll say plainly whether we’re the right fit.",
   },
   {
-    question: "Can you handle both our audit and our monthly accounting?",
-    answer:
-      "Not at the same time, and not for the same fiscal year. Independence standards require that we not audit books we also maintain. Most clients pick one or the other with us; some rotate audit providers so we can run their advisory work continuously.",
-  },
-  {
     question: "How is pricing structured?",
     answer:
       "A fixed monthly retainer, scoped to your entity count, transaction volume, and reporting cadence in the engagement letter. Audit and one-off projects are quoted separately and fixed before work starts.",

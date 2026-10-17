@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { LEADERSHIP_TEAM } from "@/data/leadership";
 
 export default function Leadership() {
@@ -66,24 +65,14 @@ export default function Leadership() {
                   ? `${260 + index * 160}ms`
                   : "0ms",
               }}
-              className={`flex flex-col sm:flex-row items-start gap-5 sm:gap-6 rounded-3xl border border-border/70 bg-card p-6 sm:p-7 shadow-xs transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`flex flex-col justify-between rounded-3xl border border-border/70 bg-card p-7 sm:p-8 shadow-xs transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 isRevealed
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }`}
             >
-              <div className="relative h-28 w-28 sm:h-32 sm:w-32 shrink-0 overflow-hidden rounded-2xl bg-muted shadow-xs">
-                <Image
-                  src={partner.image}
-                  alt={partner.name}
-                  fill
-                  sizes="(max-width: 640px) 112px, 128px"
-                  className="object-cover object-top"
-                />
-              </div>
-
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between gap-3">
+              <div>
+                <div className="flex flex-wrap items-center justify-between gap-3">
                   <h3 className="font-display text-xl sm:text-2xl font-semibold text-foreground tracking-tight">
                     {partner.name}
                   </h3>
@@ -95,11 +84,11 @@ export default function Leadership() {
                 <p className="mt-1 text-sm font-medium text-accent">
                   {partner.role}
                 </p>
-
-                <p className="mt-3.5 text-xs sm:text-sm leading-relaxed text-foreground/75 font-light">
-                  {partner.bio}
-                </p>
               </div>
+
+              <p className="mt-4 text-xs sm:text-sm leading-relaxed text-foreground/80 font-light">
+                {partner.bio}
+              </p>
             </div>
           ))}
         </div>

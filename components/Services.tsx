@@ -18,8 +18,8 @@ function DesktopFeatureView({
 
   return (
     <div className="hidden lg:block">
-      <div className="mt-14 lg:mt-18 grid grid-cols-12 items-center gap-x-0">
-        <div className="col-span-5 flex flex-col gap-y-1">
+      <div className="mt-8 lg:mt-10 grid grid-cols-12 items-stretch gap-x-0">
+        <div className="col-span-5 flex flex-col justify-between gap-y-1">
           {practices.map((practice, practiceIndex) => {
             const isActive = selectedIndex === practiceIndex;
             return (
@@ -32,7 +32,7 @@ function DesktopFeatureView({
                     ? `${250 + practiceIndex * 110}ms`
                     : "0ms",
                 }}
-                className={`group relative cursor-pointer text-left w-full rounded-l-2xl rounded-r-none p-4.5 outline-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
+                className={`group relative cursor-pointer text-left w-full rounded-l-2xl rounded-r-none p-3.5 lg:p-4 outline-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
                   } ${isActive ? "bg-card/40" : "hover:bg-card/20"}`}
@@ -67,16 +67,16 @@ function DesktopFeatureView({
               : "opacity-0 translate-y-8"
             }`}
         >
-          <div className="w-full overflow-hidden rounded-2xl bg-card/40 border border-border/80 px-8 py-10 xl:px-12 xl:py-14 shadow-card-elevated min-h-145 flex flex-col justify-center">
+          <div className="w-full overflow-hidden rounded-2xl bg-card/40 border border-border/80 px-7 py-7 xl:px-10 xl:py-8 shadow-card-elevated min-h-110 lg:min-h-115 flex flex-col justify-between">
             <div
               key={activePractice.id}
-              className="animate-card-fade-in flex flex-col justify-center"
+              className="animate-card-fade-in flex flex-col justify-between h-full"
             >
               <div
                 style={{
                   transitionDelay: isRevealed ? "450ms" : "0ms",
                 }}
-                className={`pb-6 border-b border-border/50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
+                className={`pb-4 border-b border-border/50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
                   }`}
@@ -86,19 +86,19 @@ function DesktopFeatureView({
                 </p>
               </div>
 
-              <div className="mt-8">
+              <div className="mt-5">
                 <p
                   style={{
                     transitionDelay: isRevealed ? "560ms" : "0ms",
                   }}
-                  className={`text-xs font-mono uppercase tracking-[0.2em] text-secondary font-medium mb-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
+                  className={`text-xs font-mono uppercase tracking-[0.2em] text-secondary font-medium mb-3 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-3"
                     }`}
                 >
                   What&apos;s included
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2.5">
                   {activePractice.deliverables.map((item, itemIdx) => (
                     <li
                       key={item}
@@ -107,7 +107,7 @@ function DesktopFeatureView({
                           ? `${640 + itemIdx * 70}ms`
                           : "0ms",
                       }}
-                      className={`flex items-start gap-3 text-sm sm:text-base text-foreground/85 leading-snug transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
+                      className={`flex items-start gap-2.5 text-sm sm:text-base text-foreground/85 leading-snug transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
                           ? "opacity-100 translate-y-0"
                           : "opacity-0 translate-y-3"
                         }`}
@@ -136,7 +136,7 @@ function DesktopFeatureView({
                 style={{
                   transitionDelay: isRevealed ? "1050ms" : "0ms",
                 }}
-                className={`mt-8 pt-7 border-t border-border/50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
+                className={`mt-5 pt-4 border-t border-border/50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
                   }`}
@@ -169,6 +169,7 @@ function MobileFeatureView({
         {practices.map((practice, pIdx) => (
           <div
             key={practice.title}
+            id={`service-${practice.id}`}
             style={{
               transitionDelay: isRevealed ? `${200 + pIdx * 150}ms` : "0ms",
             }}
@@ -262,10 +263,12 @@ export default function Services() {
     };
     checkHash();
     window.addEventListener("hashchange", checkHash);
+    window.addEventListener("popstate", checkHash);
 
     return () => {
       window.removeEventListener("select-practice", handleSelectPractice);
       window.removeEventListener("hashchange", checkHash);
+      window.removeEventListener("popstate", checkHash);
     };
   }, []);
 
@@ -294,8 +297,12 @@ export default function Services() {
     <section
       ref={sectionRef}
       id="services"
-      className="relative bg-card py-24 lg:py-32 text-foreground overflow-hidden"
+      className="relative bg-card pt-12 pb-16 lg:pt-14 lg:pb-20 text-foreground overflow-hidden scroll-mt-0"
     >
+      <span id="fractional-cfo" className="absolute top-0 pointer-events-none" />
+      <span id="accounting-advisory" className="absolute top-0 pointer-events-none" />
+      <span id="gaap-advisory" className="absolute top-0 pointer-events-none" />
+      <span id="audit-assurance" className="absolute top-0 pointer-events-none" />
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-8">
         <div className="max-w-2xl">
           <p

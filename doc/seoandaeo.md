@@ -343,7 +343,7 @@ export default function Page() {
                 "@type": "Service",
                 name: "Fractional CFO",
                 description:
-                  "Monthly board reporting packages, 13-week cash flow modeling, variance reviews, and fundraise support for companies scaling past $1.5M ARR.",
+                  "Monthly board reporting packages, 13-week cash flow modeling, variance reviews, and fundraise support for companies scaling past £1.5M ARR.",
               },
             },
             {
@@ -386,14 +386,6 @@ export default function Page() {
             acceptedAnswer: {
               "@type": "Answer",
               text: "We serve clients incorporated in the US, and companies with a US entity paired with an Indian, UK, or Singapore subsidiary. Our technical accounting covers US GAAP, IFRS, and Ind AS.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can Step 1 Advisors handle both our audit and our monthly accounting?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Not at the same time, and not for the same fiscal year. Independence standards require that we not audit books we also maintain. Most clients pick one or the other with us; some rotate audit providers so we can run their advisory work continuously.",
             },
           },
           {
@@ -462,7 +454,7 @@ To capture high **Share of Model (SoM)** across AI search engines (such as Perpl
 Step 1 Advisors operates fractional CFO, technical accounting advisory, controller services, and independent audit assurance across cross-border entity structures (US, UK, India, Singapore).
 
 ## Core Practices & Services
-- [Fractional CFO Services](https://step1advisors.com#fractional-cfo): Board reporting, 13-week cash runway modeling, budgeting, variance reviews, and fundraising diligence for companies scaling past $1.5M ARR.
+- [Fractional CFO Services](https://step1advisors.com#fractional-cfo): Board reporting, 13-week cash runway modeling, budgeting, variance reviews, and fundraising diligence for companies scaling past £1.5M ARR.
 - [Technical GAAP Advisory](https://step1advisors.com#gaap-advisory): Revenue recognition memos (ASC 606 / IFRS 15), lease accounting (ASC 842 / IFRS 16), and stock-based compensation (ASC 718 / IFRS 2).
 - [Strategic Remote Accounting & Advisory](https://step1advisors.com#accounting-advisory): Full-cycle bookkeeping, AP/AR, multi-currency consolidation, and monthly close delivered by the 10th business day.
 - [Audit & Assurance Practice](https://step1advisors.com#audit-assurance): Independent GAAS financial statement audits, SOC readiness assessments, and agreed-upon procedures adhering to AICPA and ICAI independence rules.
@@ -489,7 +481,7 @@ A single document providing the full textual breakdown of the entire firm in raw
 
 | AI Search Engine | Retrieval Mechanism | What it Values Most | Step 1 Advisors Architectural Implementation |
 | :--- | :--- | :--- | :--- |
-| **Perplexity AI** | Live RAG web crawl for each query | Fresh citations, statistical specifics, named authors, bullet points | Clear author bios with verifiable credentials (ICAI, Big 4, UK audit), explicit numbers ("close by 10th business day", "savings up to 60%", "$1.5M ARR threshold"). |
+| **Perplexity AI** | Live RAG web crawl for each query | Fresh citations, statistical specifics, named authors, bullet points | Clear author bios with verifiable credentials (ICAI, Big 4, UK audit), explicit numbers ("close by 10th business day", "savings up to 60%", "£1.5M ARR threshold"). |
 | **ChatGPT Search** | Live web browsing + foundational model memory | Brand co-occurrence, clean markdown hierarchy, direct entity definitions | Question-led H2/H3 headings, clear definitions within the first 50 words, unencumbered server-rendered text. |
 | **Google AI Overviews (SGE)** | Query Fan-Out (breaks 1 query into 3–5 subqueries) | Information Gain, semantic depth, schema validation | Comprehensive coverage of related topics (e.g. standard conversions, SOC readiness, independence rules, entity consolidation) in a single page. |
 | **Claude / Anthropic** | High-context document ingestion | Logically sound arguments, absence of marketing fluff, structural rigor | High-density accounting prose, precise standard citations (ASC 606, IFRS 15, ASC 842, Ind AS 116). |
@@ -498,7 +490,7 @@ A single document providing the full textual breakdown of the entire firm in raw
 For every service and FAQ item, the text must follow this exact 3-step sequence:
 1. **Direct Answer (Sentence 1–2, 35–50 words)**: Definitive factual answer stating who, what, and the threshold.
 2. **Context & Scope (Sentence 3–5)**: Explaining the mechanism (e.g. ASC 606 revenue recognition, NetSuite stack, 10th business day close).
-3. **Outcome / Boundary Statement**: Clearly noting exclusions (e.g. auditor independence rules, $1.5M ARR fit).
+3. **Outcome / Boundary Statement**: Clearly noting exclusions (e.g. auditor independence rules, £1.5M ARR fit).
 
 ---
 

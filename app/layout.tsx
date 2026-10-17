@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Newsreader, Work_Sans } from "next/font/google";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import FloatingCalendlyButton from "@/components/FloatingCalendlyButton";
 import { PRODUCT_NAME, SITE_URL } from "@/lib/config";
 import "./globals.css";
 
@@ -97,6 +98,7 @@ export default function RootLayout({
       >
         <SmoothScrollProvider>
           {children}
+          <FloatingCalendlyButton />
         </SmoothScrollProvider>
       </body>
     </html>

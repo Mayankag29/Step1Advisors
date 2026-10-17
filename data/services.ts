@@ -20,7 +20,7 @@ export const SERVICES: ServicePractice[] = [
     heroSubtitle: "Strategy & Board Reporting",
     pitch: "A finance lead who sits in your leadership meetings, not a report you skim once a month.",
     whoItFits:
-      "Companies past $1.5M ARR $0M ARR that need high-conviction financial leadership to scale sustainably—without the $300k+ commitment of a full-time executive.",
+      "Companies past £1.5M ARR that need high-conviction financial leadership to scale sustainably—without the £300k+ commitment of a full-time executive.",
     deliverables: [
       "Monthly board & investor reporting packages",
       "13-week cash flow and runway modeling",

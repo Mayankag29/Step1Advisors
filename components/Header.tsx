@@ -24,6 +24,7 @@ export default function Header() {
   const [isPastHero, setIsPastHero] = useState<boolean>(isSubPage);
 
   const isPastHeroOrSubpage = isSubPage || isPastHero;
+  const isTickerStuck = !isSubPage && isPastHero;
 
   useEffect(() => {
     if (isSubPage) return;
@@ -77,7 +78,11 @@ export default function Header() {
 
   return (
     <>
-      <header className="lg:hidden fixed top-0 inset-x-0 w-full max-w-full z-50 flex items-center justify-between px-4 sm:px-8 py-3.5 transition-colors duration-300 bg-foreground border-b border-background/10 shadow-md">
+      <header
+        className={`lg:hidden fixed ${
+          isTickerStuck ? "top-12" : "top-0"
+        } inset-x-0 w-full max-w-full z-40 flex items-center justify-between px-4 sm:px-8 py-3.5 transition-all duration-300 bg-foreground border-b border-background/10 shadow-md`}
+      >
         <Link
           href="/"
           className="group flex items-center shrink-0 py-0.5 transition-transform duration-200 active:scale-95"
@@ -101,17 +106,22 @@ export default function Header() {
         </div>
       </header>
 
-      <div className="hidden lg:flex absolute top-6 inset-x-0 z-40 mx-auto max-w-7xl px-6 xl:px-8 h-14 items-center justify-between pointer-events-none">
+      <div
+        className={`hidden lg:flex absolute ${
+          isTickerStuck ? "top-18" : "top-6"
+        } inset-x-0 z-40 mx-auto max-w-7xl px-6 xl:px-8 h-14 items-center justify-between pointer-events-none transition-all duration-300`}
+      >
         <div className="pointer-events-auto flex items-center h-full">
           <Link
             href="/"
             className="group flex items-center transition-transform duration-300 hover:scale-[1.02]"
           >
             <span
-              className={`font-display font-semibold text-2xl tracking-tight transition-colors duration-300 ${isSubPage
+              className={`font-display font-semibold text-2xl tracking-tight transition-colors duration-300 ${
+                isSubPage
                   ? "text-foreground group-hover:text-secondary"
                   : "text-background group-hover:text-primary"
-                }`}
+              }`}
             >
               {PRODUCT_FIRST_PART}{" "}
               <span className={isSubPage ? "text-secondary" : "text-primary"}>
@@ -133,13 +143,18 @@ export default function Header() {
         </div>
       </div>
 
-      <header className="hidden lg:flex fixed top-6 inset-x-0 z-50 pointer-events-none items-center justify-center px-4 h-14">
+      <header
+        className={`hidden lg:flex fixed ${
+          isTickerStuck ? "top-18" : "top-6"
+        } inset-x-0 z-50 pointer-events-none items-center justify-center px-4 h-14 transition-all duration-300`}
+      >
         <nav
           aria-label="Main Navigation"
-          className={`pointer-events-auto relative flex items-center gap-1 rounded-full p-2 h-14 transition duration-300 ${isPastHeroOrSubpage
+          className={`pointer-events-auto relative flex items-center gap-1 rounded-full p-2 h-14 transition duration-300 ${
+            isPastHeroOrSubpage
               ? "border border-foreground/10 bg-popover/95 text-foreground shadow-nav-float backdrop-blur-md hover:border-foreground/20"
               : "border border-background/15 bg-foreground/90 text-background shadow-2xl backdrop-blur-xl hover:border-secondary/40"
-            }`}
+          }`}
         >
           {NAV_LINKS.map((link) => {
             const isActive = activeHref === link.href;

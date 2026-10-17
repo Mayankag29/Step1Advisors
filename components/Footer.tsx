@@ -20,7 +20,7 @@ const PRACTICES = [
 ];
 
 const RESOURCES = [
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/portfolio", label: "Case Studies" },
   { href: "/blog", label: "Blog" },
   { href: "/#faq", label: "FAQ" },
   { href: "/#contact", label: "Contact" },

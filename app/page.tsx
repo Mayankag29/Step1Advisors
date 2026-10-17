@@ -165,7 +165,7 @@ export default function Home() {
         }}
       />
       <Header />
-      <main className="w-full max-w-full overflow-x-clip">
+      <main className="w-full max-w-full">
         <Hero />
         <CredentialsTicker />
         <Process />

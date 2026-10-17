@@ -6,7 +6,7 @@ export default function CredentialsTicker() {
   return (
     <section
       aria-label="Trust and Credentials Ticker"
-      className="relative z-20 w-full max-w-full overflow-hidden border-y border-background/10 bg-foreground/95"
+      className="sticky top-0 z-50 w-full max-w-full overflow-hidden border-y border-background/10 bg-foreground/95 shadow-sm backdrop-blur-md"
     >
       <div className="flex w-full items-center">
         <div className="relative z-20 flex shrink-0 items-center bg-foreground py-3.5 pl-4 pr-3.5 sm:py-4 sm:pl-8 sm:pr-6 border-r border-background/10 shadow-md">

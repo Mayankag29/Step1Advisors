@@ -61,7 +61,7 @@ export default function Contact() {
                   Advisory Headquarters
                 </p>
                 <p className="text-foreground/80 font-medium leading-relaxed">
-                  Gurugram (Delhi NCR), India — engagements delivered globally under US GAAP, IFRS &amp; Ind AS
+                  Gurugram (Delhi NCR), India — engagements delivered globally under US GAAP, UK GAAP, IFRS &amp; Ind AS
                 </p>
               </div>
             </div>

@@ -70,9 +70,64 @@ export default function SmoothScrollProvider({
       touchMultiplier: 1.6,
     });
     lenisRef.current = lenis;
+    if (typeof window !== "undefined") {
+      (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+    }
+
+    const PRACTICE_IDS = [
+      "fractional-cfo",
+      "accounting-advisory",
+      "gaap-advisory",
+      "audit-assurance",
+    ];
 
     const scrollToHash = (hash: string, immediate = false) => {
       try {
+        const cleanId = hash.replace("#", "");
+
+        if (cleanId === "services") {
+          const servicesEl = document.getElementById("services");
+          if (servicesEl) {
+            lenis.scrollTo(servicesEl as HTMLElement, {
+              offset: 0,
+              immediate,
+              duration: immediate ? 0 : 1.0,
+            });
+            return;
+          }
+        }
+
+        if (PRACTICE_IDS.includes(cleanId)) {
+          window.dispatchEvent(
+            new CustomEvent("select-practice", { detail: cleanId })
+          );
+          const isMobile = window.innerWidth < 1024;
+          const targetEl = isMobile
+            ? (document.getElementById(`service-${cleanId}`) ||
+              document.getElementById("services"))
+            : document.getElementById("services");
+          if (targetEl) {
+            lenis.scrollTo(targetEl as HTMLElement, {
+              offset: isMobile ? -70 : 0,
+              immediate,
+              duration: immediate ? 0 : 1.0,
+            });
+            return;
+          }
+        }
+
+        if (cleanId === "savings-calculator") {
+          const calcEl = document.getElementById("savings-calculator");
+          if (calcEl) {
+            lenis.scrollTo(calcEl as HTMLElement, {
+              offset: 0,
+              immediate,
+              duration: immediate ? 0 : 1.0,
+            });
+            return;
+          }
+        }
+
         const element = document.querySelector(hash);
         if (element) {
           lenis.scrollTo(element as HTMLElement, {
@@ -141,6 +196,54 @@ export default function SmoothScrollProvider({
         href.length > 1
       ) {
         const hash = href.startsWith("/#") ? href.substring(1) : href;
+        const cleanId = hash.replace("#", "");
+
+        if (cleanId === "services") {
+          e.preventDefault();
+          window.history.pushState(null, "", hash);
+          const servicesEl = document.getElementById("services");
+          if (servicesEl) {
+            lenis.scrollTo(servicesEl as HTMLElement, {
+              offset: 0,
+              duration: 1.0,
+            });
+          }
+          return;
+        }
+
+        if (PRACTICE_IDS.includes(cleanId)) {
+          e.preventDefault();
+          window.history.pushState(null, "", hash);
+          window.dispatchEvent(
+            new CustomEvent("select-practice", { detail: cleanId })
+          );
+          const isMobile = window.innerWidth < 1024;
+          const targetEl = isMobile
+            ? (document.getElementById(`service-${cleanId}`) ||
+              document.getElementById("services"))
+            : document.getElementById("services");
+          if (targetEl) {
+            lenis.scrollTo(targetEl as HTMLElement, {
+              offset: isMobile ? -70 : 0,
+              duration: 1.0,
+            });
+          }
+          return;
+        }
+
+        if (cleanId === "savings-calculator") {
+          e.preventDefault();
+          window.history.pushState(null, "", hash);
+          const calcEl = document.getElementById("savings-calculator");
+          if (calcEl) {
+            lenis.scrollTo(calcEl as HTMLElement, {
+              offset: 0,
+              duration: 1.0,
+            });
+          }
+          return;
+        }
+
         const element = document.querySelector(hash);
         if (element) {
           e.preventDefault();
@@ -164,6 +267,9 @@ export default function SmoothScrollProvider({
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      if (typeof window !== "undefined") {
+        delete (window as unknown as { __lenis?: unknown }).__lenis;
+      }
       revealObserver.disconnect();
       document.removeEventListener("click", handleAnchorClick);
       window.removeEventListener("hashchange", handleHashChange);
@@ -186,7 +292,7 @@ export default function SmoothScrollProvider({
         type="button"
         onClick={scrollToTop}
         aria-label="Scroll back to top"
-        className={`fixed bottom-6 right-6 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-secondary/40 bg-foreground/90 text-primary shadow-lg backdrop-blur-md transition duration-300 hover:scale-105 hover:border-primary hover:bg-secondary hover:text-background active:scale-95 ${
+        className={`fixed bottom-21 sm:bottom-23 right-7 sm:right-8 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-secondary/40 bg-foreground/90 text-primary shadow-lg backdrop-blur-md transition duration-300 hover:scale-105 hover:border-primary hover:bg-secondary hover:text-background active:scale-95 ${
           showTopBtn
             ? "translate-y-0 opacity-100"
             : "pointer-events-none translate-y-4 opacity-0"
