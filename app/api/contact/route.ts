@@ -51,13 +51,28 @@ export async function POST(req: NextRequest) {
         ? message.trim()
         : null;
 
-    const savedRecord = await saveInquiry({
-      full_name: name.trim(),
-      work_email: email.trim().toLowerCase(),
-      company_name: company.trim(),
-      service_of_interest: cleanService,
-      message: cleanMessage,
-    });
+    let savedRecord: import("@/lib/db").InquiryRecord;
+
+    try {
+      savedRecord = await saveInquiry({
+        full_name: name.trim(),
+        work_email: email.trim().toLowerCase(),
+        company_name: company.trim(),
+        service_of_interest: cleanService,
+        message: cleanMessage,
+      });
+    } catch (dbErr) {
+      console.error("[Database Save Warning, proceeding to email dispatch]:", dbErr);
+      savedRecord = {
+        id: 0,
+        full_name: name.trim(),
+        work_email: email.trim().toLowerCase(),
+        company_name: company.trim(),
+        service_of_interest: cleanService,
+        message: cleanMessage,
+        created_at: new Date().toISOString(),
+      };
+    }
 
     const clientEmailPromise = sendEmail({
       to: savedRecord.work_email,

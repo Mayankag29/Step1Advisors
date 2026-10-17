@@ -1,9 +1,9 @@
 import { neon } from "@neondatabase/serverless";
 
-const databaseUrl = process.env.DATABASE_URL;
+const databaseUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
 
 if (!databaseUrl) {
-  throw new Error("DATABASE_URL environment variable is not defined.");
+  throw new Error("DATABASE_URL or POSTGRES_URL environment variable is not defined.");
 }
 
 export const sql = neon(databaseUrl);
@@ -72,8 +72,20 @@ export async function saveInquiry(
       `) as InquiryRecord[];
 
       return rows[0];
-    } catch (err) {
+    } catch (err: unknown) {
       lastError = err;
+      const errMsg = err instanceof Error ? err.message : String(err);
+      if (
+        errMsg.includes("does not exist") ||
+        errMsg.includes("inquiries") ||
+        errMsg.includes("relation")
+      ) {
+        try {
+          await initDatabase();
+        } catch {
+          // ignore concurrent creation collision
+        }
+      }
       if (attempt < maxRetries) {
         await new Promise((resolve) => setTimeout(resolve, attempt * 300));
       }
