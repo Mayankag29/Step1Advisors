@@ -12,7 +12,7 @@ declare global {
 }
 
 export const BRAND_CALENDLY_COLORS = {
-  background: "faf8f5",
+  background: "ffffff",
   text: "17140f",
   primary: "c79a5c",
 } as const;
