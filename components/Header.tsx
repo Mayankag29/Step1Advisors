@@ -79,9 +79,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`lg:hidden fixed ${
-          isTickerStuck ? "top-12" : "top-0"
-        } inset-x-0 w-full max-w-full z-40 flex items-center justify-between px-4 sm:px-8 py-3.5 transition-all duration-300 bg-foreground border-b border-background/10 shadow-md`}
+        className="lg:hidden absolute top-0 inset-x-0 w-full max-w-full z-40 flex items-center justify-between px-4 sm:px-8 py-3.5 bg-foreground border-b border-background/10 shadow-md"
       >
         <Link
           href="/"
