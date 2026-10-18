@@ -292,7 +292,7 @@ export default function SmoothScrollProvider({
         type="button"
         onClick={scrollToTop}
         aria-label="Scroll back to top"
-        className={`fixed bottom-21 sm:bottom-23 right-7 sm:right-8 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-secondary/40 bg-foreground/90 text-primary shadow-lg backdrop-blur-md transition duration-300 hover:scale-105 hover:border-primary hover:bg-secondary hover:text-background active:scale-95 ${
+        className={`fixed bottom-36 sm:bottom-40 right-7 sm:right-8 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-secondary/40 bg-foreground/90 text-primary shadow-lg backdrop-blur-md transition duration-300 hover:scale-105 hover:border-primary hover:bg-secondary hover:text-background active:scale-95 ${
           showTopBtn
             ? "translate-y-0 opacity-100"
             : "pointer-events-none translate-y-4 opacity-0"

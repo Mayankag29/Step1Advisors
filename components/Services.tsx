@@ -91,15 +91,15 @@ function DesktopFeatureView({
           style={{
             transitionDelay: isRevealed ? "320ms" : "0ms",
           }}
-          className={`col-span-7 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
+          className={`col-span-7 h-full flex flex-col transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isRevealed
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-8"
             }`}
         >
-          <div className="w-full overflow-hidden rounded-2xl bg-card/40 border border-border/80 px-7 py-7 xl:px-10 xl:py-8 shadow-card-elevated min-h-110 lg:min-h-115 flex flex-col justify-between">
+          <div className="w-full h-full flex-1 overflow-hidden rounded-2xl bg-card/40 border border-border/80 px-7 py-7 xl:px-10 xl:py-8 shadow-card-elevated min-h-110 lg:min-h-115 flex flex-col justify-between">
             <div
               key={activePractice.id}
-              className="animate-card-fade-in flex flex-col justify-between h-full"
+              className="animate-card-fade-in flex flex-col justify-between h-full flex-1"
             >
               <div
                 style={{
