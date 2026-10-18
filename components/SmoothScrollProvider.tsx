@@ -17,6 +17,10 @@ export default function SmoothScrollProvider({
     if (window.location.hash) {
       const element = document.querySelector(window.location.hash);
       if (element) {
+        element.classList.add("is-revealed");
+        element.querySelectorAll("[data-scroll]").forEach((child) => {
+          child.classList.add("is-revealed");
+        });
         return;
       }
     }
@@ -34,6 +38,11 @@ export default function SmoothScrollProvider({
           lenisRef.current.scrollTo(0, { immediate: true });
         }
       }
+      document
+        .querySelectorAll<HTMLElement>("[data-scroll]:not(.is-revealed)")
+        .forEach((el) => {
+          el.classList.add("is-revealed");
+        });
     });
 
     return () => cancelAnimationFrame(rafId);
@@ -130,6 +139,10 @@ export default function SmoothScrollProvider({
 
         const element = document.querySelector(hash);
         if (element) {
+          element.classList.add("is-revealed");
+          element.querySelectorAll("[data-scroll]").forEach((child) => {
+            child.classList.add("is-revealed");
+          });
           lenis.scrollTo(element as HTMLElement, {
             offset: -80,
             immediate,
@@ -246,6 +259,10 @@ export default function SmoothScrollProvider({
 
         const element = document.querySelector(hash);
         if (element) {
+          element.classList.add("is-revealed");
+          element.querySelectorAll("[data-scroll]").forEach((child) => {
+            child.classList.add("is-revealed");
+          });
           e.preventDefault();
           window.history.pushState(null, "", hash);
           lenis.scrollTo(element as HTMLElement, {

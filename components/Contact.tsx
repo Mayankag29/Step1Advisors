@@ -10,7 +10,7 @@ export default function Contact() {
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-8">
         <div className="grid gap-12 lg:gap-16 lg:grid-cols-[0.95fr_1.05fr] items-start">
-          <div data-scroll="slide-left" className="space-y-8">
+          <div className="space-y-8">
             <div>
               <p className="font-display text-xs sm:text-sm uppercase tracking-[0.25em] text-secondary">
                 Get started
@@ -67,7 +67,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div data-scroll="fade-up" className="stagger-1">
+          <div>
             <ContactForm />
           </div>
         </div>
