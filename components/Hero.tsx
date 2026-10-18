@@ -95,13 +95,14 @@ export default function Hero() {
             >
               Book Discovery Call
             </Button>
-            <a
-              href="#how-we-work"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-background/85 transition-colors hover:text-primary py-1"
+            <Button
+              href="#savings-calculator"
+              variant="outline"
+              size="lg"
+              onClick={handleCalculatorClick}
             >
-              <span>See how an engagement works</span>
-              <span className="text-primary">→</span>
-            </a>
+              Calculate Your Savings
+            </Button>
           </div>
         </div>
 
@@ -143,14 +144,7 @@ export default function Hero() {
 
           <p className="mt-4 sm:mt-5 text-xs text-background/75 leading-relaxed">
             Nothing here is a required bundle — engage one function on its own,
-            or combine them into a single retainer. Curious about the numbers?{" "}
-            <a
-              href="#savings-calculator"
-              onClick={handleCalculatorClick}
-              className="text-primary underline decoration-secondary/40 underline-offset-4 transition-colors hover:text-background hover:decoration-background font-medium cursor-pointer"
-            >
-              Calculate your savings today.
-            </a>
+            or combine them into a single retainer.
           </p>
         </div>
       </div>

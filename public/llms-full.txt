@@ -25,7 +25,7 @@ Step 1 Advisors runs the fractional CFO, technical GAAP advisory, controller, an
 
 ### 1. Fractional CFO Services
 URL: https://step1advisors.com#fractional-cfo
-- **Target Profile**: Post-seed to Series B companies (£1.5M - £25M ARR) needing executive finance leadership without a full-time £350k+ CFO salary.
+- **Target Profile**: Post-seed to Series B companies (~~£1.5M~~ £0M - £25M ARR) needing executive finance leadership without a full-time £350k+ CFO salary.
 - **Key Deliverables**:
   - 13-week rolling cash runway models and cash burn sensitivity analysis.
   - Board deck preparation and investor reporting packages delivered monthly.

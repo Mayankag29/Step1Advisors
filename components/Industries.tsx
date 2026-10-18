@@ -80,14 +80,8 @@ export default function Industries() {
                       : "opacity-0 translate-y-6"
                   }`}
                 >
-                  <span className="font-display text-xl sm:text-2xl font-medium text-foreground tracking-tight group-hover:text-secondary group-hover:translate-x-2 transition-all duration-300">
+                  <span className="font-display text-xl sm:text-2xl font-medium text-foreground tracking-tight group-hover:text-secondary group-hover:translate-x-2.5 transition-all duration-300 inline-block">
                     {industry}
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="text-secondary/40 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-secondary text-lg select-none"
-                  >
-                    →
                   </span>
                 </div>
               ))}

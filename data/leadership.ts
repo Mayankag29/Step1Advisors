@@ -15,7 +15,7 @@ export const LEADERSHIP_TEAM: Partner[] = [
   {
     name: "CA Mayank A",
     role: "Partner, Audit & Assurance",
-    credential: "India (ICAI)",
+    credential: "CA (ICAI)",
     bio: "Big Four rigour, with partner-level attention. Ten years in Big Four audit, leading statutory and PCAOB audits for listed and private groups across the UK, US and Europe. Fractional CFO support that turns sharp controls and clear reporting into confident growth. Audit-grade discipline, CFO-level vision.",
   },
 ];

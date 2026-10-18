@@ -3,6 +3,35 @@
 import { useEffect, useRef, useState } from "react";
 import { SERVICES, type ServicePractice } from "@/data/services";
 
+function renderFormattedText(text: string) {
+  if (!text) return null;
+  const parts = text.split(/(~~.*?~~|\*\*.*?\*\*)/g);
+  return parts.map((part, index) => {
+    if (part.startsWith("~~") && part.endsWith("~~")) {
+      return (
+        <del
+          key={index}
+          className="line-through decoration-2 decoration-secondary/80 text-foreground/50 mr-1.5 inline-block"
+          style={{ textDecoration: "line-through" }}
+        >
+          {part.slice(2, -2)}
+        </del>
+      );
+    }
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong
+          key={index}
+          className="font-semibold text-secondary not-italic"
+        >
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return <span key={index}>{part}</span>;
+  });
+}
+
 function DesktopFeatureView({
   practices,
   selectedIndex,
@@ -145,7 +174,7 @@ function DesktopFeatureView({
                   <span className="font-semibold text-accent">
                     Who it fits —{" "}
                   </span>
-                  <span>{activePractice.whoItFits}</span>
+                  <span>{renderFormattedText(activePractice.whoItFits)}</span>
                 </p>
               </div>
             </div>
@@ -226,7 +255,7 @@ function MobileFeatureView({
                   <span className="font-semibold text-accent">
                     Who it fits —{" "}
                   </span>
-                  <span>{practice.whoItFits}</span>
+                  <span>{renderFormattedText(practice.whoItFits)}</span>
                 </p>
               </div>
             </div>

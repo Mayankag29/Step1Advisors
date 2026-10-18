@@ -20,7 +20,7 @@ export const SERVICES: ServicePractice[] = [
     heroSubtitle: "Strategy & Board Reporting",
     pitch: "A finance lead who sits in your leadership meetings, not a report you skim once a month.",
     whoItFits:
-      "Companies past £1.5M ARR that need high-conviction financial leadership to scale sustainably—without the £300k+ commitment of a full-time executive.",
+      "Companies past ~~£1.5M~~ **£0M** ARR that need high-conviction financial leadership to scale sustainably—without the £300k+ commitment of a full-time executive.",
     deliverables: [
       "Monthly board & investor reporting packages",
       "13-week cash flow and runway modeling",
@@ -51,7 +51,7 @@ export const SERVICES: ServicePractice[] = [
     id: "accounting-advisory",
     number: "03",
     title: "Strategic Remote Accounting & Advisory",
-    heroTitle: "Controller & Bookkeeping",
+    heroTitle: "Strategic Remote Accounting & Advisory",
     heroSubtitle: "Monthly Close & AP/AR",
     pitch: "The monthly close, run by people who also read the numbers once they're closed.",
     whoItFits: "Teams who aren't ready to build an in-house accounting department.",
@@ -99,7 +99,7 @@ export const HERO_SERVICES: HeroServiceItem[] = [
   },
   {
     id: "accounting-advisory",
-    title: "Controller & Bookkeeping",
+    title: "Strategic Remote Accounting & Advisory",
     subtitle: "Monthly Close & AP/AR",
     status: "Available",
   },
