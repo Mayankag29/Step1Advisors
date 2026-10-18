@@ -13,6 +13,7 @@ export interface InquiryRecord {
   full_name: string;
   work_email: string;
   company_name: string;
+  contact_number: string | null;
   service_of_interest: string;
   message: string | null;
   created_at: string;
@@ -25,10 +26,14 @@ export async function initDatabase(): Promise<void> {
       full_name VARCHAR(255) NOT NULL,
       work_email VARCHAR(255) NOT NULL,
       company_name VARCHAR(255) NOT NULL,
+      contact_number VARCHAR(50),
       service_of_interest VARCHAR(255) NOT NULL,
       message TEXT,
       created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
     );
+  `;
+  await sql`
+    ALTER TABLE inquiries ADD COLUMN IF NOT EXISTS contact_number VARCHAR(50);
   `;
 }
 
@@ -37,6 +42,7 @@ export async function saveInquiry(
     full_name: string;
     work_email: string;
     company_name: string;
+    contact_number?: string | null;
     service_of_interest: string;
     message: string | null;
   },
@@ -51,6 +57,7 @@ export async function saveInquiry(
           full_name,
           work_email,
           company_name,
+          contact_number,
           service_of_interest,
           message
         )
@@ -58,6 +65,7 @@ export async function saveInquiry(
           ${data.full_name},
           ${data.work_email},
           ${data.company_name},
+          ${data.contact_number || null},
           ${data.service_of_interest},
           ${data.message}
         )
@@ -66,6 +74,7 @@ export async function saveInquiry(
           full_name,
           work_email,
           company_name,
+          contact_number,
           service_of_interest,
           message,
           created_at;
@@ -108,6 +117,7 @@ export async function getInquiriesForPastDay(
           full_name,
           work_email,
           company_name,
+          contact_number,
           service_of_interest,
           message,
           created_at

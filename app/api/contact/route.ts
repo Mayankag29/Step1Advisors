@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     requestPayload = body;
-    const { name, email, company, service, message, honeypot } = body;
+    const { name, email, company, phone, service, message, honeypot } = body;
 
     if (honeypot) {
       return NextResponse.json({ success: true, message: "Received" });
@@ -41,6 +41,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const cleanPhone =
+      phone && typeof phone === "string" && phone.trim()
+        ? phone.trim()
+        : null;
+
     const cleanService =
       service && typeof service === "string" && service.trim()
         ? service.trim()
@@ -58,6 +63,7 @@ export async function POST(req: NextRequest) {
         full_name: name.trim(),
         work_email: email.trim().toLowerCase(),
         company_name: company.trim(),
+        contact_number: cleanPhone,
         service_of_interest: cleanService,
         message: cleanMessage,
       });
@@ -68,6 +74,7 @@ export async function POST(req: NextRequest) {
         full_name: name.trim(),
         work_email: email.trim().toLowerCase(),
         company_name: company.trim(),
+        contact_number: cleanPhone,
         service_of_interest: cleanService,
         message: cleanMessage,
         created_at: new Date().toISOString(),

@@ -116,6 +116,16 @@ export function getAdminAlertEmailHtml(inquiry: InquiryRecord): string {
                   <td style="color: #17140F; font-weight: 600;">${escapeHtml(inquiry.company_name)}</td>
                 </tr>
                 <tr>
+                  <td style="color: rgba(23, 20, 15, 0.5); font-weight: 500;">Contact Number:</td>
+                  <td style="color: #17140F; font-weight: 600;">
+                    ${
+                      inquiry.contact_number
+                        ? `<a href="tel:${escapeHtml(inquiry.contact_number)}" style="color: #17140F; text-decoration: none;">${escapeHtml(inquiry.contact_number)}</a>`
+                        : `<span style="color: rgba(23, 20, 15, 0.4); font-weight: 400; font-style: italic;">(Not provided)</span>`
+                    }
+                  </td>
+                </tr>
+                <tr>
                   <td style="color: rgba(23, 20, 15, 0.5); font-weight: 500;">Work Email:</td>
                   <td>
                     <a href="mailto:${escapeHtml(inquiry.work_email)}" style="color: #C79A5C; font-weight: 600; text-decoration: none;">
@@ -201,6 +211,7 @@ export function getDailyDigestEmailHtml(
                         <tr style="background-color: #FAF8F5; border-bottom: 2px solid #E9E1D1; text-align: left;">
                           <th style="padding: 8px 10px; color: rgba(23, 20, 15, 0.6);">Name</th>
                           <th style="padding: 8px 10px; color: rgba(23, 20, 15, 0.6);">Company</th>
+                          <th style="padding: 8px 10px; color: rgba(23, 20, 15, 0.6);">Contact</th>
                           <th style="padding: 8px 10px; color: rgba(23, 20, 15, 0.6);">Service</th>
                           <th style="padding: 8px 10px; color: rgba(23, 20, 15, 0.6);">Email</th>
                         </tr>
@@ -212,6 +223,7 @@ export function getDailyDigestEmailHtml(
                           <tr style="border-bottom: 1px solid #E9E1D1;">
                             <td style="padding: 8px 10px; font-weight: 600; color: #17140F;">${escapeHtml(inq.full_name)}</td>
                             <td style="padding: 8px 10px; color: #17140F;">${escapeHtml(inq.company_name)}</td>
+                            <td style="padding: 8px 10px; color: rgba(23, 20, 15, 0.7);">${inq.contact_number ? escapeHtml(inq.contact_number) : "—"}</td>
                             <td style="padding: 8px 10px; color: #C79A5C; font-weight: 500;">${escapeHtml(inq.service_of_interest)}</td>
                             <td style="padding: 8px 10px;"><a href="mailto:${escapeHtml(inq.work_email)}" style="color: #17140F; text-decoration: none;">${escapeHtml(inq.work_email)}</a></td>
                           </tr>

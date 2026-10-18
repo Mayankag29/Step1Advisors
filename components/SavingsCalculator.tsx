@@ -38,14 +38,40 @@ const SERVICE_NEEDS: ServiceNeed[] = [
 interface ArrTier {
   id: string;
   label: string;
-  multiplier: number;
+  cfoBase: number;
+  cfoTotalCash: number;
+  targetSavingsPct: number;
 }
 
 const ARR_TIERS: ArrTier[] = [
-  { id: "seed", label: "< $2M", multiplier: 0.85 },
-  { id: "growth", label: "$2M – $5M", multiplier: 1.0 },
-  { id: "scale", label: "$5M – $12M", multiplier: 1.2 },
-  { id: "enterprise", label: "$12M+", multiplier: 1.4 },
+  {
+    id: "seed",
+    label: "< $2M",
+    cfoBase: 180000,
+    cfoTotalCash: 202500,
+    targetSavingsPct: 59,
+  },
+  {
+    id: "growth",
+    label: "$2M – $5M",
+    cfoBase: 215000,
+    cfoTotalCash: 260000,
+    targetSavingsPct: 62,
+  },
+  {
+    id: "scale",
+    label: "$5M – $10M",
+    cfoBase: 250000,
+    cfoTotalCash: 310000,
+    targetSavingsPct: 64,
+  },
+  {
+    id: "enterprise",
+    label: "$12M+",
+    cfoBase: 285000,
+    cfoTotalCash: 380000,
+    targetSavingsPct: 66,
+  },
 ];
 
 function formatCurrency(amount: number): string {
@@ -54,6 +80,111 @@ function formatCurrency(amount: number): string {
     currency: "USD",
     maximumFractionDigits: 0,
   }).format(Math.round(amount));
+}
+
+function getTargetSavingsPct(tierId: string, selectedNeeds: string[]): number {
+  const count = selectedNeeds.length;
+  const hasCfo = selectedNeeds.includes("cfo");
+  const hasAccounting = selectedNeeds.includes("accounting");
+
+  if (count === 3) {
+    switch (tierId) {
+      case "seed":
+        return 61;
+      case "growth":
+        return 64;
+      case "scale":
+        return 65;
+      case "enterprise":
+        return 66;
+      default:
+        return 64;
+    }
+  }
+
+  if (count === 2) {
+    if (hasCfo && hasAccounting) {
+      switch (tierId) {
+        case "seed":
+          return 59;
+        case "growth":
+          return 62;
+        case "scale":
+          return 64;
+        case "enterprise":
+          return 66;
+        default:
+          return 62;
+      }
+    } else if (hasCfo) {
+      switch (tierId) {
+        case "seed":
+          return 59;
+        case "growth":
+          return 61;
+        case "scale":
+          return 63;
+        case "enterprise":
+          return 65;
+        default:
+          return 61;
+      }
+    } else {
+      switch (tierId) {
+        case "seed":
+          return 58;
+        case "growth":
+          return 61;
+        case "scale":
+          return 63;
+        case "enterprise":
+          return 64;
+        default:
+          return 61;
+      }
+    }
+  }
+
+  if (hasCfo) {
+    switch (tierId) {
+      case "seed":
+        return 59;
+      case "growth":
+        return 60;
+      case "scale":
+        return 62;
+      case "enterprise":
+        return 63;
+      default:
+        return 60;
+    }
+  } else if (hasAccounting) {
+    switch (tierId) {
+      case "seed":
+        return 58;
+      case "growth":
+        return 59;
+      case "scale":
+        return 61;
+      case "enterprise":
+        return 62;
+      default:
+        return 59;
+    }
+  } else {
+    switch (tierId) {
+      case "seed":
+        return 58;
+      case "growth":
+        return 59;
+      case "scale":
+        return 60;
+      case "enterprise":
+        return 61;
+      default:
+        return 59;
+    }
+  }
 }
 
 export default function SavingsCalculator() {
@@ -96,21 +227,56 @@ export default function SavingsCalculator() {
   };
 
   const activeArr = ARR_TIERS.find((a) => a.id === selectedArrId) || ARR_TIERS[1];
-  const activeServices = SERVICE_NEEDS.filter((s) => selectedNeeds.includes(s.id));
 
-  const rawInHouseBase = activeServices.reduce((sum, s) => sum + s.inHouseAnnual, 0);
-  const benefitsOverhead = includeOverhead ? rawInHouseBase * 0.22 + 35000 : 0;
-  const inHouseAnnual = Math.round((rawInHouseBase + benefitsOverhead) * activeArr.multiplier);
+  let inHouseBase = 0;
+  let inHouseTotalCash = 0;
 
-  const rawStep1Monthly = activeServices.reduce((sum, s) => sum + s.step1Monthly, 0);
-  const bundleDiscount = activeServices.length >= 2 ? 0.92 : 1.0;
-  const step1Monthly = Math.round(rawStep1Monthly * activeArr.multiplier * bundleDiscount);
+  selectedNeeds.forEach((id) => {
+    if (id === "cfo") {
+      inHouseBase += activeArr.cfoBase;
+      inHouseTotalCash += activeArr.cfoTotalCash;
+    } else if (id === "accounting") {
+      const scale =
+        activeArr.id === "seed"
+          ? 0.9
+          : activeArr.id === "growth"
+          ? 1.0
+          : activeArr.id === "scale"
+          ? 1.1
+          : 1.2;
+      const base = Math.round(155000 * scale);
+      inHouseBase += base;
+      inHouseTotalCash += Math.round(base * 1.15);
+    } else if (id === "gaap") {
+      const scale =
+        activeArr.id === "seed"
+          ? 0.9
+          : activeArr.id === "growth"
+          ? 1.0
+          : activeArr.id === "scale"
+          ? 1.1
+          : 1.2;
+      const base = Math.round(90000 * scale);
+      inHouseBase += base;
+      inHouseTotalCash += Math.round(base * 1.1);
+    }
+  });
+
+  const inHouseAnnual = includeOverhead
+    ? Math.round(inHouseTotalCash * 1.2)
+    : inHouseBase;
+
+  const targetPct = getTargetSavingsPct(activeArr.id, selectedNeeds);
+
+  const targetSavingsAnnual = inHouseAnnual * (targetPct / 100);
+  const rawStep1Annual = inHouseAnnual - targetSavingsAnnual;
+  const step1Monthly = Math.round(rawStep1Annual / 12 / 100) * 100;
   const step1Annual = step1Monthly * 12;
 
   const annualSavings = Math.max(0, inHouseAnnual - step1Annual);
   const savingsPct = Math.min(
-    65,
-    Math.max(55, Math.round((annualSavings / inHouseAnnual) * 100))
+    66,
+    Math.max(58, Math.round((annualSavings / inHouseAnnual) * 100))
   );
 
   return (
@@ -136,7 +302,7 @@ export default function SavingsCalculator() {
               isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            Savings up to 60% vs. in-house hiring
+            Savings up to 66% vs. in-house hiring
           </h2>
           <p
             style={{
@@ -288,8 +454,8 @@ export default function SavingsCalculator() {
               <div className="space-y-3.5 pb-5 border-b border-border/50">
                 <div className="flex items-center justify-between text-sm">
                   <div>
-                    <span className="text-foreground/70 block text-xs">
-                      Traditional In-House
+                    <span className="text-foreground/75 block text-xs font-medium">
+                      Traditional In-House<span className="text-secondary font-semibold ml-0.5">*</span>
                     </span>
                     <span className="text-[11px] text-foreground/50 font-light">
                       {includeOverhead ? "Fully loaded cost" : "Base salary only"}
@@ -307,7 +473,7 @@ export default function SavingsCalculator() {
                       Step1 Advisors Pod
                     </span>
                     <span className="text-[11px] text-foreground/50 font-light">
-                      Fixed monthly retainer, 0% equity
+                      0% equity
                     </span>
                   </div>
                   <span className="font-display text-base sm:text-lg font-semibold text-foreground tabular">
@@ -361,10 +527,19 @@ export default function SavingsCalculator() {
                   Book Discovery Call
                 </Button>
                 <p className="text-[11px] text-center text-foreground/60 font-light">
-                  Fixed monthly fee &bull; 0% equity dilution &bull; 30-day flexibility
+                  0% equity dilution &bull; 30-day flexibility
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="mt-8 sm:mt-10 pt-5 sm:pt-6 border-t border-border/50 flex flex-col gap-1.5 text-[11px] sm:text-xs text-foreground/65 font-light">
+            <p>
+              <span className="text-secondary font-semibold">*</span> Numbers for Consumer Goods, Direct-to-Consumer (DTC), Retail, and E-commerce companies.
+            </p>
+            <p className="text-foreground/50">
+              <span className="font-medium text-foreground/75">Sources:</span> JM Search, Hyperbots &amp; Alpha Apex Group, Eightx &amp; Consumer Brand Finance Benchmarks.
+            </p>
           </div>
         </div>
       </div>

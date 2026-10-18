@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { INDUSTRIES } from "@/data/industries";
 
-const COLUMNS = [INDUSTRIES.slice(0, 4), INDUSTRIES.slice(4, 8)];
+const mid = Math.ceil(INDUSTRIES.length / 2);
+const COLUMNS = [INDUSTRIES.slice(0, mid), INDUSTRIES.slice(mid)];
 
 export default function Industries() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -71,7 +72,7 @@ export default function Industries() {
                   key={industry}
                   style={{
                     transitionDelay: isRevealed
-                      ? `${300 + (index + colIdx * 4) * 90}ms`
+                      ? `${300 + (index + colIdx * mid) * 90}ms`
                       : "0ms",
                   }}
                   className={`group py-6 sm:py-7 flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
@@ -87,6 +88,31 @@ export default function Industries() {
               ))}
             </div>
           ))}
+        </div>
+
+        <div
+          style={{
+            transitionDelay: isRevealed ? "750ms" : "0ms",
+          }}
+          className={`mt-4 sm:mt-5 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
+        >
+          <a
+            href="#contact"
+            className="group inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-foreground/80 hover:text-foreground transition-colors cursor-pointer"
+          >
+            <span className="inline-flex items-center text-xs font-mono font-medium text-secondary bg-background px-3 py-1 rounded-full border border-border/80 group-hover:border-secondary transition-colors shadow-xs">
+              + Many more
+            </span>
+            <span className="font-light">
+              Don&apos;t see your industry?
+            </span>
+            <span className="font-medium text-secondary group-hover:text-primary transition-colors inline-flex items-center gap-1">
+              <span>Inquire here</span>
+              <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </span>
+          </a>
         </div>
       </div>
     </section>

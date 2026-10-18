@@ -72,6 +72,14 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-full sm:max-w-7xl gap-12 sm:gap-14 lg:gap-16 px-4 sm:px-8 lg:grid-cols-2 lg:items-center">
         <div className="w-full max-w-2xl lg:max-w-none">
+          <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-xs sm:text-sm text-background/90 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0 animate-pulse" />
+            <span>
+              For early stage start ups, our monthly retainer starts at{" "}
+              <strong className="font-semibold text-primary">£39 per month</strong>
+            </span>
+          </div>
+
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight text-background">
             The finance team you&apos;d <br />
             otherwise{" "}

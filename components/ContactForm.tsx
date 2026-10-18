@@ -13,6 +13,32 @@ const SERVICES = [
   "Audit Liaison & Readiness",
 ];
 
+interface CountryCodeOption {
+  name: string;
+  code: string;
+  flag: string;
+  placeholder: string;
+}
+
+const COUNTRY_CODES: CountryCodeOption[] = [
+  { name: "United Kingdom", code: "+44", flag: "🇬🇧", placeholder: "7911 123456" },
+  { name: "United States", code: "+1", flag: "🇺🇸", placeholder: "(555) 000-0000" },
+  { name: "India", code: "+91", flag: "🇮🇳", placeholder: "98765 43210" },
+  { name: "United Arab Emirates", code: "+971", flag: "🇦🇪", placeholder: "50 123 4567" },
+  { name: "Singapore", code: "+65", flag: "🇸🇬", placeholder: "8123 4567" },
+  { name: "Canada", code: "+1", flag: "🇨🇦", placeholder: "(555) 000-0000" },
+  { name: "Australia", code: "+61", flag: "🇦🇺", placeholder: "412 345 678" },
+  { name: "Saudi Arabia", code: "+966", flag: "🇸🇦", placeholder: "50 123 4567" },
+  { name: "Germany", code: "+49", flag: "🇩🇪", placeholder: "151 2345678" },
+  { name: "France", code: "+33", flag: "🇫🇷", placeholder: "6 12 34 56 78" },
+  { name: "Switzerland", code: "+41", flag: "🇨🇭", placeholder: "78 123 45 67" },
+  { name: "Netherlands", code: "+31", flag: "🇳🇱", placeholder: "6 12345678" },
+  { name: "Ireland", code: "+353", flag: "🇮🇪", placeholder: "83 123 4567" },
+  { name: "Hong Kong", code: "+852", flag: "🇭🇰", placeholder: "9123 4567" },
+  { name: "Japan", code: "+81", flag: "🇯🇵", placeholder: "90 1234 5678" },
+  { name: "Other", code: "+", flag: "🌐", placeholder: "Phone number" },
+];
+
 export default function ContactForm() {
   const [isSent, setIsSent] = useState(false);
   const [isToastVisible, setIsToastVisible] = useState(false);
@@ -22,6 +48,9 @@ export default function ContactForm() {
   const [honeypot, setHoneypot] = useState("");
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
+  const [selectedCountry, setSelectedCountry] = useState<CountryCodeOption>(COUNTRY_CODES[0]);
+  const [isPhoneCodeOpen, setIsPhoneCodeOpen] = useState(false);
+  const phoneCodeRef = useRef<HTMLDivElement>(null);
 
   const [errors, setErrors] = useState<{
     name?: string;
@@ -33,6 +62,7 @@ export default function ContactForm() {
     name: "",
     email: "",
     company: "",
+    phone: "",
     service: "Not Sure Yet",
     message: "",
   });
@@ -45,6 +75,9 @@ export default function ContactForm() {
     const handleClickOutside = (e: MouseEvent) => {
       if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
         setIsSelectOpen(false);
+      }
+      if (phoneCodeRef.current && !phoneCodeRef.current.contains(e.target as Node)) {
+        setIsPhoneCodeOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -104,6 +137,12 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setErrorMessage(null);
 
+    const formattedPhone = formData.phone.trim()
+      ? formData.phone.trim().startsWith("+")
+        ? formData.phone.trim()
+        : `${selectedCountry.code} ${formData.phone.trim()}`
+      : "";
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -114,6 +153,7 @@ export default function ContactForm() {
           name: formData.name,
           email: formData.email,
           company: formData.company,
+          phone: formattedPhone,
           service: formData.service,
           message: formData.message,
           honeypot,
@@ -133,9 +173,11 @@ export default function ContactForm() {
         name: "",
         email: "",
         company: "",
+        phone: "",
         service: "Not Sure Yet",
         message: "",
       });
+      setSelectedCountry(COUNTRY_CODES[0]);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
       setErrorMessage(msg);
@@ -227,30 +269,110 @@ export default function ContactForm() {
           </label>
         </div>
 
-        <label htmlFor="contact-company" className="flex flex-col gap-1.5 text-xs sm:text-sm">
-          <span className="font-semibold text-foreground/75">Company *</span>
-          <input
-            id="contact-company"
-            name="company"
-            autoComplete="organization"
-            value={formData.company}
-            onChange={(e) => updateField("company", e.target.value)}
-            className={`rounded-xl border bg-popover px-4 py-2.5 text-sm text-foreground placeholder:text-foreground/35 outline-none transition-colors ${
-              errors.company
-                ? "border-destructive focus:border-destructive focus:ring-1 focus:ring-destructive/25"
-                : "border-border/80 focus:border-secondary focus:ring-1 focus:ring-secondary/30"
-            }`}
-            placeholder="Company, Inc."
-          />
-          {errors.company && (
-            <span className="text-xs text-destructive font-medium flex items-center gap-1.5 mt-0.5">
-              <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16" fill="currentColor">
-                <path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0-10a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5zm0 6.5a.875.875 0 1 0 0-1.75.875.875 0 0 0 0 1.75z" clipRule="evenodd" />
-              </svg>
-              {errors.company}
-            </span>
-          )}
-        </label>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label htmlFor="contact-company" className="flex flex-col gap-1.5 text-xs sm:text-sm">
+            <span className="font-semibold text-foreground/75">Company *</span>
+            <input
+              id="contact-company"
+              name="company"
+              autoComplete="organization"
+              value={formData.company}
+              onChange={(e) => updateField("company", e.target.value)}
+              className={`rounded-xl border bg-popover px-4 py-2.5 text-sm text-foreground placeholder:text-foreground/35 outline-none transition-colors ${
+                errors.company
+                  ? "border-destructive focus:border-destructive focus:ring-1 focus:ring-destructive/25"
+                  : "border-border/80 focus:border-secondary focus:ring-1 focus:ring-secondary/30"
+              }`}
+              placeholder="Company, Inc."
+            />
+            {errors.company && (
+              <span className="text-xs text-destructive font-medium flex items-center gap-1.5 mt-0.5">
+                <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16" fill="currentColor">
+                  <path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0-10a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5zm0 6.5a.875.875 0 1 0 0-1.75.875.875 0 0 0 0 1.75z" clipRule="evenodd" />
+                </svg>
+                {errors.company}
+              </span>
+            )}
+          </label>
+
+          <div className="flex flex-col gap-1.5 text-xs sm:text-sm">
+            <label htmlFor="contact-phone" className="font-semibold text-foreground/75">
+              Contact Number
+            </label>
+            <div className="relative flex rounded-xl border border-border/80 bg-popover transition-colors focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary/30">
+              <div ref={phoneCodeRef} className="relative">
+                <button
+                  type="button"
+                  id="contact-phone-code-button"
+                  onClick={() => setIsPhoneCodeOpen((prev) => !prev)}
+                  className="h-full flex items-center gap-1.5 px-3 py-2.5 border-r border-border/70 hover:bg-muted/50 rounded-l-xl text-sm font-medium text-foreground transition-colors cursor-pointer shrink-0"
+                  aria-label="Select country phone code"
+                  aria-haspopup="listbox"
+                  aria-expanded={isPhoneCodeOpen}
+                >
+                  <span className="text-base leading-none">{selectedCountry.flag}</span>
+                  <span className="text-xs font-mono text-foreground/85 font-medium">{selectedCountry.code}</span>
+                  <svg
+                    className={`w-3.5 h-3.5 text-foreground/40 transition-transform duration-200 ${
+                      isPhoneCodeOpen ? "rotate-180 text-secondary" : ""
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+
+                {isPhoneCodeOpen && (
+                  <ul
+                    role="listbox"
+                    className="absolute top-full left-0 mt-1.5 w-64 rounded-xl border border-border/80 bg-popover shadow-xl p-1.5 space-y-0.5 z-50 max-h-56 overflow-y-auto thin-scrollbar animate-card-fade-in text-xs"
+                  >
+                    {COUNTRY_CODES.map((c) => {
+                      const isSelected = c.code === selectedCountry.code && c.name === selectedCountry.name;
+                      return (
+                        <li
+                          key={`${c.name}-${c.code}`}
+                          role="option"
+                          aria-selected={isSelected}
+                          onClick={() => {
+                            setSelectedCountry(c);
+                            setIsPhoneCodeOpen(false);
+                          }}
+                          className={`rounded-lg px-2.5 py-2 flex items-center justify-between cursor-pointer transition-colors ${
+                            isSelected
+                              ? "bg-primary/15 text-primary font-semibold"
+                              : "text-foreground/85 hover:bg-muted/80 hover:text-foreground"
+                          }`}
+                        >
+                          <div className="flex items-center gap-2 truncate">
+                            <span className="text-base leading-none">{c.flag}</span>
+                            <span className="truncate">{c.name}</span>
+                          </div>
+                          <span className="font-mono text-foreground/50 ml-2 shrink-0 font-medium">{c.code}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+              </div>
+
+              <input
+                id="contact-phone"
+                name="phone"
+                type="tel"
+                autoComplete="tel-national"
+                value={formData.phone}
+                onChange={(e) => updateField("phone", e.target.value)}
+                className="w-full bg-transparent px-3 py-2.5 text-sm text-foreground placeholder:text-foreground/35 outline-none"
+                placeholder={selectedCountry.placeholder}
+              />
+            </div>
+          </div>
+        </div>
 
         <div ref={selectRef} className="flex flex-col gap-1.5 text-xs sm:text-sm relative">
           <span className="font-semibold text-foreground/75">Service of Interest</span>
@@ -286,7 +408,7 @@ export default function ContactForm() {
           {isSelectOpen && (
             <ul
               role="listbox"
-              className="absolute top-full left-0 right-0 mt-1.5 rounded-2xl border border-border/80 bg-popover shadow-xl p-1.5 space-y-1 z-40 max-h-60 overflow-auto animate-card-fade-in"
+              className="absolute top-full left-0 right-0 mt-1.5 rounded-2xl border border-border/80 bg-popover shadow-xl p-1.5 space-y-1 z-40 max-h-60 overflow-y-auto thin-scrollbar animate-card-fade-in"
             >
               {SERVICES.map((srv) => {
                 const isSelected = formData.service === srv;

@@ -12,13 +12,13 @@ declare global {
 }
 
 export const BRAND_CALENDLY_COLORS = {
-  background: "ffffff",
+  background: "faf8f5",
   text: "17140f",
   primary: "c79a5c",
 } as const;
 
 export const DEFAULT_CALENDLY_URL =
-  process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/prashanttonusharma/30min";
+  process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/welcome-step1advisors/30min";
 
 export function buildBrandedCalendlyUrl(baseUrl: string): string {
   try {

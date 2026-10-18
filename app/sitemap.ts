@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/config";
+import { BLOG_POSTS } from "@/data/blogs";
 
-const ROUTES: Array<{
+const STATIC_ROUTES: Array<{
   path: string;
   changeFrequency: "weekly" | "monthly" | "yearly";
   priority: number;
@@ -16,10 +17,21 @@ const ROUTES: Array<{
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return ROUTES.map(({ path, changeFrequency, priority }) => ({
-    url: `${SITE_URL}${path}`,
-    lastModified,
-    changeFrequency,
-    priority,
+  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map(
+    ({ path, changeFrequency, priority }) => ({
+      url: `${SITE_URL}${path}`,
+      lastModified,
+      changeFrequency,
+      priority,
+    })
+  );
+
+  const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt || lastModified),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
   }));
+
+  return [...staticEntries, ...blogEntries];
 }

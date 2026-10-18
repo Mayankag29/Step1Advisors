@@ -1,10 +1,12 @@
 export const INDUSTRIES: string[] = [
   "B2B SaaS & Software",
-  "Healthcare Services & MSOs",
-  "Manufacturing & Industrials",
-  "Professional Services Partnerships",
+  "Telecommunications",
+  "Advertisement & Media",
   "Consumer & E-Commerce",
-  "Nonprofits & Foundations",
+  "Lifesciences & Healthcare",
+  "Energy, Oil & Gas",
+  "Manufacturing & Industrials",
   "Real Estate & Construction",
-  "Cross-Border India–US Operators",
+  "Professional Services Partnerships",
+  "Nonprofits & Foundations",
 ];
