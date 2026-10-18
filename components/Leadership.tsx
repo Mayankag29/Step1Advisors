@@ -65,7 +65,7 @@ export default function Leadership() {
                   ? `${260 + index * 160}ms`
                   : "0ms",
               }}
-              className={`flex flex-col justify-between rounded-3xl border border-border/70 bg-card p-7 sm:p-8 shadow-xs transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`flex flex-col rounded-3xl border border-border/70 bg-card p-7 sm:p-8 shadow-xs transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 isRevealed
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
