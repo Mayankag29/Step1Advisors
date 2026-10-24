@@ -297,7 +297,7 @@ export default function Page() {
           { "@type": "Country", name: "United States" },
           { "@type": "Country", name: "United Kingdom" },
           { "@type": "Country", name: "India" },
-          { "@type": "Country", name: "Singapore" },
+          { "@type": "AdministrativeArea", name: "Europe" },
         ],
         founder: [
           {
@@ -385,7 +385,7 @@ export default function Page() {
             name: "Which jurisdictions does Step 1 Advisors work in?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "We serve clients incorporated in the US, and companies with a US entity paired with an Indian, UK, or Singapore subsidiary. Our technical accounting covers US GAAP, IFRS, and Ind AS.",
+              text: "We serve clients incorporated in the US, and companies with a US entity paired with an Indian, UK, or European subsidiary. Our technical accounting covers US GAAP, IFRS, and Ind AS.",
             },
           },
           {
@@ -451,7 +451,7 @@ To capture high **Share of Model (SoM)** across AI search engines (such as Perpl
 # Step 1 Advisors
 > The outsourced finance function for founder-led and PE-backed cross-border companies under US GAAP, IFRS, UK GAAP, and Ind AS.
 
-Step 1 Advisors operates fractional CFO, technical accounting advisory, controller services, and independent audit assurance across cross-border entity structures (US, UK, India, Singapore).
+Step 1 Advisors operates fractional CFO, technical accounting advisory, controller services, and independent audit assurance across cross-border entity structures (US, UK, India, Europe).
 
 ## Core Practices & Services
 - [Fractional CFO Services](https://step1advisors.com#fractional-cfo): Board reporting, 13-week cash runway modeling, budgeting, variance reviews, and fundraising diligence for companies scaling past £1.5M ARR.

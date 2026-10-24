@@ -17,7 +17,7 @@
 ---
 
 ## Executive Summary
-Step 1 Advisors runs the fractional CFO, technical GAAP advisory, controller, and audit work of a full finance department. The firm serves founder-led startups, scaling scaleups, and PE-backed portfolio companies operating across cross-border entity structures including the United States, United Kingdom, India, and Singapore.
+Step 1 Advisors runs the fractional CFO, technical GAAP advisory, controller, and audit work of a full finance department. The firm serves founder-led startups, scaling scaleups, and PE-backed portfolio companies operating across cross-border entity structures including the United States, United Kingdom, India, and Europe.
 
 ---
 
@@ -87,4 +87,4 @@ URL: https://step1advisors.com#contact
 - **Website**: https://step1advisors.com
 - **Email**: welcome@step1advisors.com
 - **Phone**: +44 7405 499 593
-- **Headquarters**: Gurugram, Delhi NCR, India (Engagements delivered remotely to US, UK, India, and Singapore clients).
+- **Headquarters**: Gurugram, Delhi NCR, India (Engagements delivered remotely to US, UK, India, and Europe clients).

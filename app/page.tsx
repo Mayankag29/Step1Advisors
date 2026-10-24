@@ -42,7 +42,7 @@ export default function Home() {
           { "@type": "Country", name: "United States" },
           { "@type": "Country", name: "United Kingdom" },
           { "@type": "Country", name: "India" },
-          { "@type": "Country", name: "Singapore" },
+          { "@type": "AdministrativeArea", name: "Europe" },
         ],
         founder: [
           {
