@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import Button from "./Button";
 import { CONTACT_EMAIL } from "@/lib/config";
 import { trackClarityEvent } from "@/lib/clarity";
+import { trackGAEvent } from "@/lib/gtag";
 
 const SERVICES = [
   "Not Sure Yet",
@@ -170,6 +171,10 @@ export default function ContactForm() {
       setIsToastVisible(false);
       setIsSent(true);
       trackClarityEvent("contact_inquiry_submitted");
+      trackGAEvent("generate_lead", {
+        event_category: "Contact Form",
+        event_label: formData.service,
+      });
       setErrors({});
       setFormData({
         name: "",
