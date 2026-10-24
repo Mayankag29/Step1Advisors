@@ -1,10 +1,10 @@
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import CredentialsTicker from "@/components/CredentialsTicker";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import WhyUs from "@/components/WhyUs";
-import SavingsCalculator from "@/components/SavingsCalculator";
 import Industries from "@/components/Industries";
 import Leadership from "@/components/Leadership";
 import FAQ from "@/components/FAQ";
@@ -12,6 +12,32 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { FAQ_ITEMS } from "@/data/faq";
 import { PRODUCT_NAME, SITE_URL, CONTACT_EMAIL } from "@/lib/config";
+
+const SavingsCalculator = dynamic(
+  () => import("@/components/SavingsCalculator"),
+  {
+    loading: () => (
+      <section
+        id="savings-calculator"
+        className="relative bg-card py-24 lg:py-32 text-foreground overflow-hidden min-h-125"
+      >
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-8">
+          <div className="max-w-3xl">
+            <p className="font-display text-xs sm:text-sm uppercase tracking-[0.25em] text-secondary">
+              Cost Comparison
+            </p>
+            <h2 className="mt-4 font-display text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl leading-tight text-foreground">
+              Savings up to 66% vs. in-house hiring
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-foreground/75 leading-relaxed font-light">
+              Check your finance needs and compare the cost of a full-time in-house hire against our dedicated advisory pod.
+            </p>
+          </div>
+        </div>
+      </section>
+    ),
+  }
+);
 
 export default function Home() {
   const jsonLd = {

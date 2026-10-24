@@ -1,0 +1,26 @@
+import type { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: "Step 1 Advisors",
+    short_name: "Step 1",
+    description:
+      "Fractional CFO, Technical GAAP & Audit Advisory for cross-border companies.",
+    start_url: "/",
+    display: "standalone",
+    background_color: "#17140f",
+    theme_color: "#17140f",
+    icons: [
+      {
+        src: "/icon.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        src: "/apple-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  };
+}

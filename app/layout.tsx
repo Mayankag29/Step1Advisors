@@ -1,12 +1,18 @@
 import type { Metadata, Viewport } from "next";
+import dynamic from "next/dynamic";
 import { Newsreader, Work_Sans } from "next/font/google";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
-import FloatingCalendlyButton from "@/components/FloatingCalendlyButton";
-import FloatingCalculatorButton from "@/components/FloatingCalculatorButton";
 import MicrosoftClarity from "@/components/MicrosoftClarity";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { PRODUCT_NAME, SITE_URL } from "@/lib/config";
 import "./globals.css";
+
+const FloatingCalendlyButton = dynamic(
+  () => import("@/components/FloatingCalendlyButton")
+);
+const FloatingCalculatorButton = dynamic(
+  () => import("@/components/FloatingCalculatorButton")
+);
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -31,11 +37,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Fractional CFO, Technical GAAP & Audit Advisory | Step 1",
+    default: "Fractional CFO, GAAP & Audit Advisory | Step 1 Advisors",
     template: `%s | ${PRODUCT_NAME}`,
   },
   description:
-    "Outsourced financial leadership, US GAAP/IFRS technical memos, and audit readiness for cross-border companies. Delivered by ex-Big 4 partners.",
+    "Outsourced CFO, US GAAP/IFRS memos, and audit readiness for cross-border companies. Delivered by ex-Big 4 partners.",
+  manifest: "/site.webmanifest",
   keywords: [
     "Fractional CFO",
     "GAAP Advisory",
@@ -65,23 +72,25 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: PRODUCT_NAME,
-    title: "Fractional CFO, Technical GAAP & Audit Advisory | Step 1 Advisors",
+    title: "Fractional CFO, GAAP & Audit Advisory | Step 1 Advisors",
     description:
-      "Outsourced financial leadership, US GAAP/IFRS technical memos, and audit readiness for cross-border companies. Delivered by ex-Big 4 partners.",
+      "Outsourced CFO, US GAAP/IFRS memos, and audit readiness for cross-border companies. Delivered by ex-Big 4 partners.",
     images: [
       {
         url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Step 1 Advisors — Fractional CFO, GAAP Advisory, Tax & Audit",
+        alt: "Step 1 Advisors — Fractional CFO, GAAP Advisory & Audit Readiness. Book Discovery Call at step1advisors.com",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fractional CFO, Technical GAAP & Audit Advisory | Step 1 Advisors",
+    site: "@step1advisors",
+    creator: "@step1advisors",
+    title: "Fractional CFO, GAAP & Audit Advisory | Step 1 Advisors",
     description:
-      "Outsourced financial leadership, US GAAP/IFRS technical memos, and audit readiness for cross-border companies.",
+      "Outsourced CFO, US GAAP/IFRS memos, and audit readiness for cross-border companies. Delivered by ex-Big 4 partners.",
     images: [`${SITE_URL}/og-image.png`],
   },
   robots: {
