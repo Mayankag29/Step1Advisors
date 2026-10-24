@@ -14,7 +14,6 @@ interface Engagement {
   id: string;
   clientType: string;
   scope: string;
-  scale: string;
   challenge: string;
   solution: string;
   result: string;
@@ -24,8 +23,7 @@ const ENGAGEMENTS: Engagement[] = [
   {
     id: "b2b-saas-series-b",
     clientType: "Enterprise B2B SaaS",
-    scale: "$18M ARR · 85 Headcount",
-    scope: "Fractional CFO & ASC 606 Revenue Recognition",
+    scope: "ASC 606 Revenue Recognition",
     challenge:
       "Enterprise multi-year contracts with bespoke SLA terms and hardware add-ons were being booked on invoicing rather than delivered performance obligations, stalling Series B investor due diligence.",
     solution:
@@ -34,67 +32,64 @@ const ENGAGEMENTS: Engagement[] = [
       "Passed Big 4 technical audit with zero restatements; Series B round closed on schedule with full board visibility.",
   },
   {
-    id: "cross-border-uk-us",
-    clientType: "Cross-Border Healthtech Group",
-    scale: "Dual Entities: UK Parent + US Operating Subsidiary",
-    scope: "Multi-Entity Controller & FRS 102 ↔ US GAAP Conversion",
+    id: "professional-services-accruals",
+    clientType: "Multi-Site Professional Services Firm",
+    scope: "Accrual Testing & Period-End Cut-Off Review",
     challenge:
-      "Monthly close took 28 business days due to fragmented bookkeepers in London and New York. Intercompany balances and currency translations had not been reconciled for 9 months.",
+      "Year-end accruals were being estimated top-down by the finance lead from prior-year balances, with no supporting schedules. Unbilled WIP, bonus provisions and subcontractor costs were all materially misstated, and the incoming auditors flagged cut-off as a key audit risk.",
     solution:
-      "Unified the chart of accounts inside existing software, established standard transfer pricing reconciliations, and instituted a synchronized Day 9 close calendar.",
+      "Rebuilt the accruals listing bottom-up from contracts, timesheets and post-period invoices; designed a standard accrual template with owner, basis and reversal date for every line; and performed subsequent-receipts and cut-off testing on both sides of year-end before fieldwork began.",
     result:
-      "Close cycle reduced from 28 days to 9 business days; reconciled $4.2M in intercompany balances without tax exposure.",
+      "Identified and corrected £620k of over- and under-accruals before the audit started; year-end file passed first-year audit with no cut-off adjustments and a standing monthly accruals process now owned by the client’s own team.",
   },
   {
-    id: "fintech-audit-liaison",
-    clientType: "Fintech & Payments Platform",
-    scale: "$120M Annual Transaction Volume",
-    scope: "Audit Liaison & Readiness (GAAS & SOC 1)",
+    id: "tech-scaleup-share-based-payment",
+    clientType: "Venture-Backed Technology Scale-Up",
+    scope: "Share-Based Payment Valuation (IFRS 2 / ASC 718)",
     challenge:
-      "Facing their first statutory financial statement audit alongside a SOC 1 Type II readiness assessment for enterprise banking partners.",
+      "Three years of option grants, a growth-share scheme and an investor warrant had never been valued or expensed. Grants carried mixed vesting conditions — time-based, performance milestones and exit-linked — and the board needed audit-ready numbers ahead of a US investor’s diligence.",
     solution:
-      "Managed the entire PBC (Provided by Client) list, prepared safeguarding reserve reconciliations, and held weekly technical liaison calls with the audit partner.",
+      "Built a grant-by-grant register; determined fair value at each grant date using Black-Scholes and Monte Carlo models for the market-condition awards; separated service, performance and market conditions for recognition; and drafted the technical memo covering valuation inputs, modifications and the deferred tax position.",
     result:
-      "Audit concluded within 6 weeks of fieldwork; SOC 1 readiness achieved with zero material weaknesses identified.",
+      "Cumulative share-based payment charge of £2.1M booked and reconciled to the cap table; valuation memo accepted by the auditors without challenge, and investor diligence closed with no accounting findings.",
   },
   {
-    id: "dtc-brand-inventory",
-    clientType: "Omnichannel Consumer Brand",
-    scale: "$35M Annual GMV · Multi-Warehouse",
-    scope: "Strategic Controller & ASC 330 Inventory Advisory",
+    id: "cross-border-group-consolidation",
+    clientType: "Cross-Border Group with Five Subsidiaries",
+    scope: "Consolidation Testing & Intercompany Elimination Review",
     challenge:
-      "Merchant reserve balances on Shopify and Amazon were out of sync with general ledger cash, leading to frequent inventory write-down surprises at year-end.",
+      "Group accounts were consolidated in spreadsheets with manual eliminations. Intercompany balances disagreed by £1.8M across entities, translation reserves had not been reconciled for two years, and a 60%-owned joint venture was being fully consolidated with no non-controlling interest.",
     solution:
-      "Engineered automated clearing accounts for payment processors, instituted standard landed cost calculations, and built SKU-level gross margin dashboards.",
+      "Re-performed the consolidation from entity trial balances; agreed and eliminated every intercompany balance and transaction with a matched confirmation pack; recalculated FX translation under IAS 21 and rebuilt the CTA reserve; and corrected the JV treatment with NCI measured at acquisition.",
     result:
-      "Eliminated $380k in unaccounted merchant reserve variances; improved inventory turnover forecasting by 40%.",
+      "Consolidation tied out to the penny across all entities; £1.8M of intercompany differences resolved and the restated translation reserve agreed by the auditors; group now closes consolidated accounts within 12 business days using a controlled elimination template.",
   },
 ];
 
 const WORKING_PAPERS = [
   {
-    title: "ASC 606 Revenue Recognition Working Paper",
+    title: "ASC 606 Revenue Recognition Cut-off Working Paper",
     category: "Technical Accounting Memo",
-    description:
-      "Multi-element SaaS contract evaluation framework, performance obligation identification, and transaction price allocation.",
+    fileUrl: "/Templates/Revenue_Cutoff_Audit_Testing_and_Manager_Review.xlsx",
+    fileName: "Revenue_Cutoff_Audit_Testing_and_Manager_Review.xlsx",
   },
   {
-    title: "13-Week Direct Cash Flow & Runway Model",
+    title: "IFRS 16 Lease Accounting Model",
     category: "CFO Pro-Forma Model",
-    description:
-      "Operational cash forecasting model tracking payroll, tax provisions, customer collections, and covenant thresholds.",
+    fileUrl: "/Templates/Lease_Accounting_IFRS16_Audit_Workpaper.xlsx",
+    fileName: "Lease_Accounting_IFRS16_Audit_Workpaper.xlsx",
   },
   {
-    title: "Audit PBC Master Tracker & Workpaper Index",
+    title: "Lease calculator",
     category: "Audit Readiness Tool",
-    description:
-      "Institutional schedule tracker mapping client schedules to standard auditor workpaper references.",
+    fileUrl: "/Templates/IFRS16_Lease_Calculator.xlsx",
+    fileName: "IFRS16_Lease_Calculator.xlsx",
   },
   {
-    title: "Cross-Border Intercompany Reconciliation Schedule",
-    category: "Multi-Entity Consolidation",
-    description:
-      "Dual-currency ledger reconciliation model eliminating intercompany imbalances across UK, US, and Indian entities.",
+    title: "Impairment Testing Model",
+    category: "Strategic Accounting and Advisory",
+    fileUrl: "/Templates/Impairment_Testing_Audit_Workpaper.xlsx",
+    fileName: "Impairment_Testing_Audit_Workpaper.xlsx",
   },
 ];
 
@@ -128,12 +123,11 @@ export default function PortfolioPage() {
                       Case Study 0{idx + 1}
                     </span>
                     <h2 className="mt-1 font-display text-2xl text-foreground">
-                      {eng.clientType}
+                      {eng.scope}
                     </h2>
                   </div>
                   <div className="text-left sm:text-right">
-                    <p className="text-sm font-medium text-accent">{eng.scope}</p>
-                    <p className="text-xs text-foreground/50">{eng.scale}</p>
+                    <p className="text-sm font-medium text-accent">{eng.clientType}</p>
                   </div>
                 </div>
 
@@ -182,20 +176,25 @@ export default function PortfolioPage() {
               {WORKING_PAPERS.map((wp) => (
                 <div
                   key={wp.title}
-                  className="rounded-xl border border-foreground/10 bg-background p-6 transition-all hover:border-secondary/50 hover:shadow-xs"
+                  className="flex flex-col justify-between rounded-xl border border-foreground/10 bg-background p-6 transition-all hover:border-secondary/50 hover:shadow-xs"
                 >
-                  <span className="text-xs font-medium uppercase tracking-wider text-accent">
-                    {wp.category}
-                  </span>
-                  <h3 className="mt-2 font-display text-lg text-foreground">
-                    {wp.title}
-                  </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-foreground/60">
-                    {wp.description}
-                  </p>
-                  <p className="mt-4 text-xs font-semibold text-secondary">
-                    Included with scoped retainer engagements →
-                  </p>
+                  <div>
+                    <span className="text-xs font-medium uppercase tracking-wider text-accent">
+                      {wp.category}
+                    </span>
+                    <h3 className="mt-2 font-display text-lg text-foreground">
+                      {wp.title}
+                    </h3>
+                  </div>
+                  <div className="mt-6">
+                    <a
+                      href={wp.fileUrl}
+                      download={wp.fileName}
+                      className="inline-flex items-center text-xs font-semibold text-secondary transition-colors hover:underline"
+                    >
+                      Download Template →
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>

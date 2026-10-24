@@ -17,3 +17,7 @@ export const SITE_URL =
 
 export const CONTACT_EMAIL =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "welcome@step1advisors.com";
+
+export const CLARITY_PROJECT_ID =
+  process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || "";
+

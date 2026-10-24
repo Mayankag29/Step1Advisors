@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Button from "./Button";
 import { CONTACT_EMAIL } from "@/lib/config";
+import { trackClarityEvent } from "@/lib/clarity";
 
 const SERVICES = [
   "Not Sure Yet",
@@ -168,6 +169,7 @@ export default function ContactForm() {
 
       setIsToastVisible(false);
       setIsSent(true);
+      trackClarityEvent("contact_inquiry_submitted");
       setErrors({});
       setFormData({
         name: "",

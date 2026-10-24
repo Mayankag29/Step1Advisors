@@ -3,6 +3,7 @@ import { Newsreader, Work_Sans } from "next/font/google";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import FloatingCalendlyButton from "@/components/FloatingCalendlyButton";
 import FloatingCalculatorButton from "@/components/FloatingCalculatorButton";
+import MicrosoftClarity from "@/components/MicrosoftClarity";
 import { PRODUCT_NAME, SITE_URL } from "@/lib/config";
 import "./globals.css";
 
@@ -102,6 +103,7 @@ export default function RootLayout({
           <FloatingCalculatorButton />
           <FloatingCalendlyButton />
         </SmoothScrollProvider>
+        <MicrosoftClarity />
       </body>
     </html>
   );

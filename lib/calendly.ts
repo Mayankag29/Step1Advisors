@@ -39,8 +39,12 @@ export function buildBrandedCalendlyUrl(baseUrl: string): string {
   }
 }
 
+import { trackClarityEvent } from "@/lib/clarity";
+
 export function openCalendly(url: string = DEFAULT_CALENDLY_URL) {
   if (typeof window === "undefined") return;
+
+  trackClarityEvent("open_calendly_modal");
 
   const brandedUrl = buildBrandedCalendlyUrl(url);
 
