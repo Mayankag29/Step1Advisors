@@ -130,9 +130,9 @@ export default function Hero() {
                 <div className="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-radial-[at_top_right] from-primary/12 via-transparent to-transparent" />
 
                 <div className="relative z-10">
-                  <h2 className="font-display text-base sm:text-lg lg:text-xl font-medium text-background transition-colors group-hover:text-primary">
+                  <span className="block font-display text-base sm:text-lg lg:text-xl font-medium text-background transition-colors group-hover:text-primary">
                     {service.title}
-                  </h2>
+                  </span>
                   <p className="mt-1.5 text-xs sm:text-sm text-background/75 font-light leading-relaxed">
                     {service.subtitle}
                   </p>

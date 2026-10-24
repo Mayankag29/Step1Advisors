@@ -1,13 +1,23 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
-import { PRODUCT_NAME, PRODUCT_SHORT_NAME } from "@/lib/config";
+import { PRODUCT_NAME, PRODUCT_SHORT_NAME, SITE_URL } from "@/lib/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Case Studies & Representative Engagements",
+  title: "Case Studies & Audit Engagements",
   description:
-    `Representative client engagements, technical accounting memorandums, and pro-forma finance operations delivered by ${PRODUCT_NAME}.`,
+    "Representative technical accounting memos, ASC 606 revenue models, and cross-border consolidations delivered by Step 1 Advisors.",
+  alternates: {
+    canonical: `${SITE_URL}/portfolio`,
+  },
+  openGraph: {
+    title: `Case Studies & Audit Engagements | ${PRODUCT_NAME}`,
+    description:
+      "Representative technical accounting memos, ASC 606 revenue models, and cross-border consolidations delivered by Step 1 Advisors.",
+    url: `${SITE_URL}/portfolio`,
+    siteName: PRODUCT_NAME,
+  },
 };
 
 interface Engagement {

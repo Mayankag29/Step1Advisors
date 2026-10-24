@@ -6,14 +6,14 @@ import { SITE_URL, PRODUCT_NAME } from "@/lib/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: `Insights & Perspectives — ${PRODUCT_NAME}`,
+  title: "Insights & Perspectives",
   description:
     "Technical guidance on Companies House ID verification, FRS 102 lease and revenue rules, UK audit thresholds, fractional CFO pricing, and IFRS vs US GAAP.",
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },
   openGraph: {
-    title: `Insights & Perspectives — ${PRODUCT_NAME}`,
+    title: `Insights & Perspectives | ${PRODUCT_NAME}`,
     description:
       "Technical guidance on Companies House ID verification, FRS 102 lease and revenue rules, UK audit thresholds, fractional CFO pricing, and IFRS vs US GAAP.",
     type: "website",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `Insights & Perspectives — ${PRODUCT_NAME}`,
+    title: `Insights & Perspectives | ${PRODUCT_NAME}`,
     description:
       "Technical guidance on Companies House ID verification, FRS 102 lease and revenue rules, UK audit thresholds, fractional CFO pricing, and IFRS vs US GAAP.",
   },

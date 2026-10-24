@@ -70,9 +70,9 @@ export default function Process() {
                 )}
               </div>
 
-              <h3 className="font-display text-xl sm:text-2xl font-medium text-foreground tracking-tight mb-3">
+              <p className="font-display text-xl sm:text-2xl font-medium text-foreground tracking-tight mb-3">
                 {step.title}
-              </h3>
+              </p>
 
               <p className="text-foreground/65 leading-relaxed text-sm sm:text-base">
                 {step.description}

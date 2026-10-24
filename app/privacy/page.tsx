@@ -1,12 +1,15 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { PRODUCT_NAME, CONTACT_EMAIL } from "@/lib/config";
+import { PRODUCT_NAME, CONTACT_EMAIL, SITE_URL } from "@/lib/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     `Privacy policy and data protection standards governing ${PRODUCT_NAME} advisory engagements, client financial records, and website usage.`,
+  alternates: {
+    canonical: `${SITE_URL}/privacy`,
+  },
 };
 
 export default function PrivacyPolicyPage() {

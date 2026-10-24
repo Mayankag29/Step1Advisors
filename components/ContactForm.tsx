@@ -203,9 +203,9 @@ export default function ContactForm() {
   return (
     <div className="rounded-2xl sm:rounded-3xl border border-border/70 bg-card p-6 sm:p-8 md:p-9 shadow-sm">
       <div className="mb-6">
-        <h3 className="font-display font-semibold text-2xl sm:text-3xl text-foreground">
+        <p className="font-display font-semibold text-2xl sm:text-3xl text-foreground">
           Send a Diagnostic Inquiry
-        </h3>
+        </p>
         <p className="mt-1 text-xs sm:text-sm text-foreground/60 font-light">
           We review every submission personally and reply with technical feedback within one business day.
         </p>

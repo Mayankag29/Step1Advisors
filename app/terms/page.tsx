@@ -1,12 +1,15 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { PRODUCT_NAME, CONTACT_EMAIL } from "@/lib/config";
+import { PRODUCT_NAME, CONTACT_EMAIL, SITE_URL } from "@/lib/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Engagement",
   description:
     `Standard terms of engagement, advisory scope, professional independence, and client responsibilities governing ${PRODUCT_NAME} engagements.`,
+  alternates: {
+    canonical: `${SITE_URL}/terms`,
+  },
 };
 
 export default function TermsPage() {

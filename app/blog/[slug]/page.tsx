@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const postUrl = `${SITE_URL}/blog/${post.slug}`;
 
   return {
-    title: `${post.title} — ${PRODUCT_NAME}`,
+    title: post.title,
     description: post.metaDescription,
     alternates: {
       canonical: postUrl,

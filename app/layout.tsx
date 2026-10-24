@@ -31,11 +31,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${PRODUCT_NAME} — Fractional CFO, GAAP Advisory, Tax & Audit`,
+    default: "Fractional CFO, Technical GAAP & Audit Advisory | Step 1",
     template: `%s | ${PRODUCT_NAME}`,
   },
   description:
-    `${PRODUCT_NAME} runs the fractional CFO, technical GAAP advisory, accounting, tax, and audit work of a full finance department under US GAAP, IFRS, or Ind AS.`,
+    "Outsourced financial leadership, US GAAP/IFRS technical memos, and audit readiness for cross-border companies. Delivered by ex-Big 4 partners.",
   keywords: [
     "Fractional CFO",
     "GAAP Advisory",
@@ -45,6 +45,7 @@ export const metadata: Metadata = {
     "ASC 606 Revenue Recognition",
     "ASC 842 Lease Accounting",
     "Audit Readiness",
+    "Cross-Border Accounting",
     "Strategic Accounting",
     "Controller Services",
     "SOC 1 SOC 2 Readiness",
@@ -61,15 +62,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: PRODUCT_NAME,
-    title: `${PRODUCT_NAME} — Fractional CFO, GAAP Advisory, Tax & Audit`,
+    title: "Fractional CFO, Technical GAAP & Audit Advisory | Step 1 Advisors",
     description:
-      "The finance team you'd otherwise assemble one hire at a time. Fractional CFO, technical GAAP advisory, accounting, tax, and audit readiness.",
+      "Outsourced financial leadership, US GAAP/IFRS technical memos, and audit readiness for cross-border companies. Delivered by ex-Big 4 partners.",
+    images: [
+      {
+        url: `${SITE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Step 1 Advisors — Fractional CFO, GAAP Advisory, Tax & Audit",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${PRODUCT_NAME} — Fractional CFO, GAAP Advisory, Tax & Audit`,
+    title: "Fractional CFO, Technical GAAP & Audit Advisory | Step 1 Advisors",
     description:
-      "The finance team you'd otherwise assemble one hire at a time. US GAAP, IFRS, or Ind AS.",
+      "Outsourced financial leadership, US GAAP/IFRS technical memos, and audit readiness for cross-border companies.",
+    images: [`${SITE_URL}/og-image.png`],
   },
   robots: {
     index: true,

@@ -71,20 +71,18 @@ export default function Leadership() {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              <div>
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <h3 className="font-display text-xl sm:text-2xl font-semibold text-foreground tracking-tight">
-                    {partner.name}
-                  </h3>
-                  <span className="inline-flex items-center text-xs font-mono font-medium text-secondary bg-background px-2.5 py-0.5 rounded-full border border-border/60 shrink-0">
-                    {partner.credential}
-                  </span>
-                </div>
-
-                <p className="mt-1 text-sm font-medium text-accent">
-                  {partner.role}
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="font-display text-xl sm:text-2xl font-semibold text-foreground tracking-tight">
+                  {partner.name}
                 </p>
+                <span className="inline-flex items-center text-xs font-mono font-medium text-secondary bg-background px-2.5 py-0.5 rounded-full border border-border/60 shrink-0">
+                  {partner.credential}
+                </span>
               </div>
+
+              <p className="mt-1 text-xs sm:text-sm font-medium text-accent">
+                {partner.role}
+              </p>
 
               <p className="mt-4 text-xs sm:text-sm leading-relaxed text-foreground/80 font-light">
                 {partner.bio}
