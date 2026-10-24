@@ -51,8 +51,11 @@ export const metadata: Metadata = {
     "SOC 1 SOC 2 Readiness",
     "Financial Due Diligence",
   ],
-  authors: [{ name: PRODUCT_NAME, url: SITE_URL }],
-  creator: PRODUCT_NAME,
+  authors: [
+    { name: PRODUCT_NAME, url: SITE_URL },
+    { name: "Prashant Sharma", url: "https://prashantsharma.in/" },
+  ],
+  creator: "Prashant Sharma - Full Stack Developer (https://prashantsharma.in/)",
   publisher: PRODUCT_NAME,
   alternates: {
     canonical: "/",
@@ -91,6 +94,16 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 

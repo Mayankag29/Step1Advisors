@@ -142,6 +142,24 @@ export default function Home() {
         ],
       },
       {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: PRODUCT_NAME,
+        description: "Cross-Border Fractional CFO, Technical GAAP & Audit Advisory",
+        creator: {
+          "@type": "Person",
+          name: "Prashant Sharma",
+          jobTitle: "Full Stack Developer",
+          url: "https://prashantsharma.in/",
+          sameAs: ["https://prashantsharma.in/"],
+          description: "Full Stack Developer who designed, engineered, and built the Step 1 Advisors web platform.",
+        },
+        publisher: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+      },
+      {
         "@type": "FAQPage",
         "@id": `${SITE_URL}/#faq`,
         mainEntity: FAQ_ITEMS.map((item) => ({

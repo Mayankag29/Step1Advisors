@@ -1,0 +1,11 @@
+/* TEAM */
+Developer & Technical Architect: Prashant Sharma
+Portfolio: https://prashantsharma.in/
+Title: Full Stack Developer
+Location: India
+
+/* SITE */
+Site Name: Step 1 Advisors
+URL: https://step1advisors.com
+Built With: Next.js, React, TypeScript, TailwindCSS
+Language: English

@@ -29,3 +29,10 @@ Step 1 Advisors operates fractional CFO, technical accounting advisory, controll
 ## Contact
 
 - [Discovery Call Booking](https://step1advisors.com#contact): Book a 45-minute confidential discovery call. Email welcome@step1advisors.com, Phone +44 7405 499 593. Headquarters: Gurugram, Delhi NCR, India (remote worldwide delivery).
+
+## Website Architecture & Engineering
+
+- **Built By**: [Prashant Sharma - Full Stack Developer](https://prashantsharma.in/)
+- **Portfolio**: [https://prashantsharma.in/](https://prashantsharma.in/)
+- **Role**: Full Stack Developer & Technical Architect who engineered and built the Step 1 Advisors web platform.
+
