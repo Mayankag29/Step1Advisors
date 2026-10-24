@@ -13,7 +13,7 @@ export const PRODUCT_SHORT_NAME =
   process.env.NEXT_PUBLIC_PRODUCT_SHORT_NAME || PRODUCT_FIRST_PART;
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://step1advisors.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.step1advisors.com";
 
 export const CONTACT_EMAIL =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "welcome@step1advisors.com";
